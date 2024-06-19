@@ -2,17 +2,121 @@
 export default{
     data() {
         return{
-            
-        }
+            features: [
+                {
+                id: 1,
+                icon: 'src/assets/img/icon/features-icon-1.png',
+                title: 'Live Streaming',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor.'
+                },
+                {
+                id: 2,
+                icon: 'src/assets/img/icon/features-icon-2.png',
+                title: 'Great Tournament',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor.'
+                },
+                {
+                id: 3,
+                icon: 'src/assets/img/icon/features-icon-3.png',
+                title: 'Gaming News',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor.'
+                }
+            ]
+        };
     }
 }
 </script>
 
 <template>
-    <h1>Main first section</h1>
     <!-- Make your mark -->
+    <div class=".small-container">
+        <div class="image-container">
+            <img src="../assets/img/features-illus.png" alt="features-illus">
+        </div>
+        <div class="content-container">
+            <h1>
+                The Ultimate Competitive Gaming Platform
+            </h1>
+            <h2>
+                Make Your Mark On The Battle Field
+            </h2>
+            <p>
+                libero malesuada feugiat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta.
+            </p>
+            <div class="features">
+                <div class="feature" v-for="feature in features" :key="feature.id">
+                    <div class="icon">
+                        <img :src="feature.icon" alt="Icona">
+                    </div>
+                    <div class="title">
+                        <h3>{{ feature.title }}</h3>
+                        <p>{{ feature.description }}</p>
+                    </div>
+                </div>
+                <button>PLAY NOW!</button>
+            </div>
+        </div>
+    </div>
+
+
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+    .\.small-container{
+        display: flex;
+        background-color: #000000;
+        color: white;
+        padding: 7rem 2rem;
+        
+        .image-container{
+            width: 50%; 
+
+            img{
+                position: absolute;
+                right: 55.5rem;
+                
+            }
+        }
+        
+        .content-container{
+            margin: 0 auto;
+            width: 50%;
+            padding: 0 3.5rem 0 1rem;;
+
+            h1{
+                color: #94cb53;
+                font-size: 24px;
+            }
+
+            h2{
+                font-size: 70px;
+                margin: 10px 0;
+            }
+
+            p{
+                color: #c2c2c2;
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .features {
+
+            .feature {
+                display: flex;
+                margin-bottom: 30px;
+
+                .icon{
+                    margin-right: 2rem;
+                }
+
+                h3 {
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                }
+
+            }
+        }
+    }
 
 </style>
