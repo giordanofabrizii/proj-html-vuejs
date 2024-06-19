@@ -1,5 +1,12 @@
 <script>
+import HeaderSticky from './Header/HeaderSticky.vue';
+import HeaderJumbotron from './Header/HeaderJumbotron.vue';
+
 export default{
+  components:{
+    HeaderSticky,
+    HeaderJumbotron,
+  },
     data() {
         return{
             
@@ -9,10 +16,14 @@ export default{
 </script>
 
 <template>
-  <h1>Header</h1>
-  <!-- header + jumbo -->
+  <header>
+    <HeaderSticky/>
+    <HeaderJumbotron/>
+  </header>
 </template>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  header{
+    background-image: url('src/assets/img/index-banner-bg.png');
+  }
 </style>
