@@ -1,5 +1,9 @@
 <script>
+import ButtonApp from '../ButtonApp.vue';
 export default {
+    components:{
+        ButtonApp,
+    },
     data() {
         return {
             ulData: [
@@ -161,6 +165,9 @@ export default {
             logoData: {
                 url: 'src/assets/img/logo.png',
                 title: 'Main Logo Futio',
+            },
+            buttonData:{
+                name: 'Live Streaming',
             }
         }
     },
@@ -185,7 +192,7 @@ export default {
                         <a :href="li.href" :class="(li.active) ? 'active' : ''">
                             {{ li.name }}
                         </a>
-                        <i class="fa-solid fa-angle-down" v-if="li.other"></i>
+                        <i class="fa-solid fa-angle-down fa-xl" v-if="li.other"></i>
                         
                         <ul v-if="(li.other)" id="ul-top" class="dropdown dropdown-transi no-display-1 flex-column">
                             <li v-for="(liLi,index) in li.other" :key="index" :class="(liLi.dropdown) ? 'display-2' : ''">
@@ -209,9 +216,9 @@ export default {
                     <h2>
                         logo carrello
                     </h2>
-                    <button>
-                        live streaming
-                    </button>
+                    <ButtonApp
+                    :name="buttonData.name"
+                    />
                 </div>
             </div>
         </nav>
@@ -225,7 +232,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.5rem;
+    padding: 1.7rem;
     ul{
         list-style-type: none;
         display: flex;
@@ -244,7 +251,7 @@ nav{
         li.relative{
             margin-right: .7rem;
             display: flex;
-            align-items: self-start;
+            align-items: center;
             &:hover .no-display-1{
                 visibility: visible;
                 opacity: 1;
