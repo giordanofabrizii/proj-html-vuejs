@@ -66,7 +66,7 @@ export default{
         display: flex;
         background-color: #000000;
         color: white;
-        padding: 7rem 2rem;
+        padding: 7rem 5rem;
         
         .image-container{
             width: 50%; 
@@ -89,14 +89,15 @@ export default{
             }
 
             h2{
-                font-size: 70px;
+                font-size: 54px;
                 margin: 10px 0;
             }
 
             p{
                 color: #c2c2c2;
-                font-size: 20px;
+                font-size: 18px;
                 margin-bottom: 20px;
+                line-height: 25px;
             }
         }
 
@@ -113,6 +114,11 @@ export default{
                 h3 {
                     font-size: 24px;
                     margin-bottom: 20px;
+                }
+
+                p{
+                    font-size: 18px;
+                    line-height: 25px;
                 }
 
             }
