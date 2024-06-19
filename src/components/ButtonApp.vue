@@ -30,18 +30,32 @@ export default{
 @use '../styles/partials/variables' as *;
 
 .surround{
+    display: inline-block;
     border: 2px solid $green;
-    padding: .5rem;
+    transition: all .3s linear;
+    padding: .3rem .5rem;
     border-radius: 5rem;
-    display: flex;
-    align-items: center;
-    width: auto;
 
     button{
         border: none;
         background-color: $green;
-        padding: .5rem;
+        transition: all .3s linear;
+        padding: 1rem;
         border-radius: 5rem;
+
+        a{
+            color: $black;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+    }
+
+    &:hover{
+        border: 2px solid $light-green;
+
+        button{
+            background-color: $light-green;
+        }
     }
 }
 
