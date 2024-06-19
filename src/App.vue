@@ -2,6 +2,7 @@
 import HeaderApp from './components/HeaderApp.vue';
 import MainApp from './components/MainApp.vue';
 import FooterApp from './components/FooterApp.vue';
+import "@fontsource/orbitron"; 
 
   export default{
     components:{
@@ -18,6 +19,8 @@ import FooterApp from './components/FooterApp.vue';
   <FooterApp/>
 </template>
 
-<style scoped>
-
+<style>
+*{
+  font-family: 'Orbitron';
+}
 </style>
