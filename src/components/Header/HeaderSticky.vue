@@ -168,26 +168,25 @@ export default {
             <div id="logo">
                 <img :src="logoData.url" :alt="logoData.title">
             </div>
-            <div id="ul">
+            <div id="ul-liveStreaming">
                 <ul>
                     <li v-for="(li,index) in ulData" :key="index" class="relative">
                         <a href="" :class="(li.active) ? 'active' : ''">
                             {{ li.name }}
                         </a>
                         <i class="fa-solid fa-angle-down" v-if="li.other"></i>
+                        
                         <ul v-if="(li.other)" id="dropdown" class="no-display flex-column">
                             <li v-for="(li,index) in li.other" :key="index" class="tendina">
                                 <a href="" id="a_dropdown">
                                     {{ li.name }}
+                                    <!--Messo icon dentro a secondo voi ?-->
+                                    <i class="fa-solid fa-caret-right fa-xs" v-if="li.other"></i>
                                 </a>
-                                
                             </li>
                         </ul>                 
                     </li>
                 </ul>
-            </div>
-            <div id="shop-button">
-                
             </div>
         </nav>
     </div>
@@ -238,11 +237,17 @@ nav{
         }
             a#a_dropdown{
                 padding: 5px 15px;
+                display: flex;
+                align-items: center;
+                i{
+                    margin-left: .3rem;
+                }
             }
     }
 }
 i{
     color: white;
+    font-weight: 600;
 }
 
 .flex-column{
