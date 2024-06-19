@@ -187,9 +187,9 @@ export default {
                         </a>
                         <i class="fa-solid fa-angle-down" v-if="li.other"></i>
                         
-                        <ul v-if="(li.other)" id="ul-top" class="dropdown no-display-1 flex-column">
+                        <ul v-if="(li.other)" id="ul-top" class="dropdown dropdown-transi no-display-1 flex-column">
                             <li v-for="(liLi,index) in li.other" :key="index" :class="(liLi.dropdown) ? 'display-2' : ''">
-                                <a :href="liLi.href" class="a_dropdown">
+                                <a :href="liLi.href" class="a_dropdown" :class="(liLi.dropdown) ? 'relative' : ''">
                                     {{ liLi.name }}
                                     <!--Messo icon dentro a secondo voi ?-->
                                     <i class="fa-solid fa-caret-right fa-xs" v-if="liLi.other"></i>
@@ -205,6 +205,14 @@ export default {
                         </ul>                 
                     </li>
                 </ul>
+                <div id="shop-liveStream">
+                    <h2>
+                        logo carrello
+                    </h2>
+                    <button>
+                        live streaming
+                    </button>
+                </div>
             </div>
         </nav>
     </div>
@@ -228,7 +236,6 @@ nav{
             min-width: 180px;
             background-color: #1b222e;
             box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
-            transition: 0.3s;
             padding: 8px 0;
         }
         li:hover{
@@ -255,6 +262,9 @@ nav{
                     visibility: visible;
                     opacity: 1;
                 }
+        .display-2:hover > a{
+            color: greenyellow; /* Da mettere variabile Hover */
+        }
             a.a_dropdown{
                 padding: 5px 15px;
                 display: flex;
@@ -265,6 +275,16 @@ nav{
             }
     }
 }
+div#ul-liveStreaming{
+    display: flex;
+    align-items: center;
+    div#shop-liveStream{
+        display: flex;
+        align-items: center;
+        margin-left: 10%;
+    }
+}
+
 #ul-top{
     top: 110%;
     left: 50%;
@@ -274,6 +294,8 @@ nav{
 }
 
 #ul-right{
+    bottom: 48%;
+    transform: translateY(-50%);
     left: 97%;
     border-radius: .25rem;
     border: 1px solid rgba(0,0,0,.15);
@@ -282,6 +304,10 @@ nav{
 i{
     color: white;
     font-weight: 600;
+}
+
+.dropdown-transi{
+    transition: 0.3s;
 }
 
 .flex-column{
@@ -299,5 +325,14 @@ i{
 }
 .relative{
     position: relative;
+}
+
+/*Da togliere*/
+h2{
+    color: white;
+}
+
+button{
+    padding: .8rem;
 }
 </style>
