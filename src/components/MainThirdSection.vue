@@ -55,6 +55,7 @@ export default{
 section{
     background-color: $black;
     padding: 6rem 0;
+    color: white;
 
     h1{
         font-size: 3rem;
