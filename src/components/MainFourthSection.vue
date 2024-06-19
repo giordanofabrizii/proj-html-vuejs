@@ -1,18 +1,150 @@
 <script>
+import CircleButtonApp from './CircleButtonApp.vue';
+
 export default{
     data() {
         return{
             
         }
+    },
+    components:{
+        CircleButtonApp,
     }
 }
 </script>
 
 <template>
-    <h1>Wathc</h1>
-    <!-- Watch the stream -->
+    <section>
+        <div class="background">
+            <div class="small-container">
+                <h3 class="green-c">Live Streaming</h3>
+                <h1>Watch The Streams</h1>
+                <p>libero malesuada feugiat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta.</p>
+
+                <div class="stream">
+                    <div id="status">
+                        <i class="fa-solid fa-tower-cell"></i>
+                        <h5>Live</h5>
+                    </div>
+                    <div id="center">
+                        <CircleButtonApp :url="'https:www.google.com'"/>
+                        <h2>League Of Legends</h2>
+                    </div>
+                    <div id="info">
+                        <div>
+                            <p class="green-c">356,599</p>
+                            <p>Viewers</p>
+                        </div>
+                        <div>
+                            <p class="green-c">23,599</p>
+                            <p>Likes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use '../styles/partials/variables' as *;
+@use '../styles/partials/mixins' as *;
+@use '../styles/general.scss';
 
+    section{
+        background-color: black;
+        width: 100%;
+        color: white;
+
+        .background{
+            background-image: url(../assets/img/live-streaming-bg.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 100%;
+            max-width: 150rem;
+            margin: 0 auto;
+            text-align: center;
+
+            .small-container{
+                padding: 5rem 0;
+            
+                .green-c{
+                    color: $light-green;
+                }
+
+                h1{
+                    font-size: 3rem;
+                    margin: 1rem 0;
+                }
+
+                p{
+                    width: 42rem;
+                    margin: 0 auto;
+                    line-height: 1.5rem;
+                    font-size: .8rem;
+                }
+
+                .stream{
+                    background-image: url(../assets/img/video-bg.png);
+                    background-size: cover;
+                    border-radius: 2rem;
+                    margin: 3rem auto;
+                    height: 40rem;
+                    width: 65rem;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+
+                    #status{
+                        position: absolute;
+                        top: 1.5rem;
+                        right: 1.5rem;
+                        border-radius: 2rem;
+                        padding: .5rem .8rem;
+                        background-color: $orange;
+                        @include flexRow;
+
+                        i{
+                            margin-right: .3rem;
+                            color: $black;
+                        }
+
+                        h5{
+                        color: $black;
+                        }
+                    }
+
+                    #center{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        i{
+                            color: red;
+                        }
+                    }
+                    
+                    #info{
+                        position: absolute;
+                        bottom: 2rem;
+                        left: 1.5rem;
+                        @include flexRow;
+                        justify-content: space-between;
+                        width: 17rem;
+
+                        div{
+                            @include flexRow;
+
+                            p{
+                                width: auto;
+                                margin: 0 .2rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
 </style>
