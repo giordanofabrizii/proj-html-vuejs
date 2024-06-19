@@ -61,10 +61,12 @@ export default {
                         {
                         name: 'About us',
                         active: false,
+                        dropdown: true,
                         href: '#',
                     },{
                         name: 'Team',
                         active: false,
+                        dropdown: true,
                         href: '#',
                         other: [
                             {
@@ -80,6 +82,7 @@ export default {
                     },{
                         name: 'Player',
                         active: false,
+                        dropdown: true,
                         href: '#',
                         other: [
                             {
@@ -95,34 +98,42 @@ export default {
                     },{
                         name: 'Upcoming Matches',
                         active: false,
+                        dropdown: false,
                         href: '#',
                     },{
                         name: 'FAQs',
                         active: false,
+                        dropdown: false,
                         href: '#',
                     },{
                         name: 'Privacy policy',
                         active: false,
+                        dropdown: false,
                         href: '#',
                     },{
                         name: 'Terms',
                         active: false,
+                        dropdown: false,
                         href: '#',
                     },{
                         name: 'Privacy policy',
                         active: false,
+                        dropdown: false,
                         href: '#',
                     },{
                         name: 'Terms',
                         active: false,
+                        dropdown: false,
                         href: '#',
                     },{
                         name: 'Cooming Soon',
                         active: false,
+                        dropdown: false,
                         href: '#',
                     },{
                         name: 'Error',
                         active: false,
+                        dropdown: false,
                         href: '#',
                     }
                 ],
@@ -171,18 +182,25 @@ export default {
             <div id="ul-liveStreaming">
                 <ul>
                     <li v-for="(li,index) in ulData" :key="index" class="relative">
-                        <a href="" :class="(li.active) ? 'active' : ''">
+                        <a :href="li.href" :class="(li.active) ? 'active' : ''">
                             {{ li.name }}
                         </a>
                         <i class="fa-solid fa-angle-down" v-if="li.other"></i>
                         
-                        <ul v-if="(li.other)" id="dropdown" class="no-display flex-column">
-                            <li v-for="(li,index) in li.other" :key="index" class="tendina">
-                                <a href="" id="a_dropdown">
-                                    {{ li.name }}
+                        <ul v-if="(li.other)" id="ul-top" class="dropdown no-display-1 flex-column">
+                            <li v-for="(liLi,index) in li.other" :key="index" :class="(liLi.dropdown) ? 'display-2' : ''">
+                                <a :href="liLi.href" class="a_dropdown">
+                                    {{ liLi.name }}
                                     <!--Messo icon dentro a secondo voi ?-->
-                                    <i class="fa-solid fa-caret-right fa-xs" v-if="li.other"></i>
+                                    <i class="fa-solid fa-caret-right fa-xs" v-if="liLi.other"></i>
                                 </a>
+                                <ul v-if="(liLi.other)" id="ul-right" class="dropdown no-display-2 flex-column">
+                                    <li v-for="(liLiLi,index) in liLi.other" :key="index">
+                                        <a :href="liLiLi.href" class="a_dropdown">
+                                            {{ liLiLi.name }}
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>                 
                     </li>
@@ -204,12 +222,10 @@ nav{
         list-style-type: none;
         display: flex;
         width: max-content;
-        #dropdown{
+        
+        .dropdown{
             position: absolute;
             min-width: 180px;
-            top: 110%;
-            left: 50%;
-            transform: translateX(-50%);
             background-color: #1b222e;
             box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
             transition: 0.3s;
@@ -222,7 +238,7 @@ nav{
             margin-right: .7rem;
             display: flex;
             align-items: self-start;
-            &:hover .no-display{
+            &:hover .no-display-1{
                 visibility: visible;
                 opacity: 1;
             }
@@ -235,7 +251,11 @@ nav{
             color: greenyellow; /* Da mettere variabile Hover */
             }
         }
-            a#a_dropdown{
+        .display-2:hover .no-display-2{
+                    visibility: visible;
+                    opacity: 1;
+                }
+            a.a_dropdown{
                 padding: 5px 15px;
                 display: flex;
                 align-items: center;
@@ -245,6 +265,20 @@ nav{
             }
     }
 }
+#ul-top{
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: .25rem;
+    border: 1px solid rgba(0,0,0,.15);
+}
+
+#ul-right{
+    left: 97%;
+    border-radius: .25rem;
+    border: 1px solid rgba(0,0,0,.15);
+}
+
 i{
     color: white;
     font-weight: 600;
@@ -255,7 +289,11 @@ i{
     flex-direction: column;
 }
 
-.no-display{
+.no-display-1{
+    visibility: hidden;
+    opacity: 0;
+}
+.no-display-2{
     visibility: hidden;
     opacity: 0;
 }
