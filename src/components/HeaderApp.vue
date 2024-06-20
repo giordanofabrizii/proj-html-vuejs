@@ -17,7 +17,10 @@ export default{
 
 <template>
   <header>
-    <HeaderSticky/>
+    <HeaderSticky
+    id="sticky"
+    />
+
     <HeaderJumbotron/>
   </header>
 </template>
@@ -25,5 +28,12 @@ export default{
 <style lang="scss" scoped>
   header{
     background-image: url('src/assets/img/index-banner-bg.png');
+    background-size: cover;
+
+    &:first-child{
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
   }
 </style>
