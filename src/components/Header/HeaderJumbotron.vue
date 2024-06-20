@@ -24,6 +24,10 @@ export default {
             playerData:{
                 url: 'src/assets/img/icon/play-icon.png',
                 title: 'Play del player'
+            },
+            imgControllerData:{
+                url: 'src/assets/img/game-controler-2.png',
+                title: 'Controller img',
             }
         }
     },
