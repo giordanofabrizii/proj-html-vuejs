@@ -106,7 +106,10 @@ export default{
                     </ul>
                 </nav>
             </section>
-            <nav></nav>
+            <nav>
+                <h3>Quick Links</h3>
+                <ul></ul>
+            </nav>
             <nav></nav>
             <nav></nav>
             <nav></nav>
@@ -159,6 +162,8 @@ a.social-icon{
         background-color: $light-green;
         border-color: transparent;
     }
+
+
 
     &:hover i{
         color: $white;
