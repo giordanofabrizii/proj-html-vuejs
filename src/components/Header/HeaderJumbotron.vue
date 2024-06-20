@@ -42,36 +42,39 @@ export default {
 
 <template>
     <section>
+        <div id="div-controller">
+            <img :src="imgControllerData.url" :alt="imgControllerData.title" id="img-controller">
+        </div>
         <div class="small-container">
-            <div>
-                <h2>
-                    {{ titleData.hTwo }}
-                </h2>
-                <h1>
-                    {{ titleData.hOne }}
-                </h1>
-                <p>
-                    {{ titleData.p }}
-                </p>
-                <div id="bottoni">
-                    <div>
-                        <ButtonApp
-                        :name="buttonData.name"
-                        :url="buttonData.url"
-                        />
-                    </div>
+        <div class="w-38">
+            <h2>
+                {{ titleData.hTwo }}
+            </h2>
+            <h1>
+                {{ titleData.hOne }}
+            </h1>
+            <p>
+                {{ titleData.p }}
+            </p>
+            <div id="bottoni">
+                <div>
+                    <ButtonApp
+                    :name="buttonData.name"
+                    :url="buttonData.url"
+                    />
+                </div>
 
-                    <div id="player-border">
-                        <div id="player">
-                            <img :src="playerData.url" :alt="playerData.title">
-                        </div>
-                    </div>
+            <div id="player-border">
+                <div id="player">
+                    <img :src="playerData.url" :alt="playerData.title">
                 </div>
             </div>
-            <div>
-                <img :src="imgJumboData.url" :alt="imgJumboData.title">
             </div>
         </div>
+        <div class="w-58">
+            <img :src="imgJumboData.url" :alt="imgJumboData.title">
+        </div>
+    </div>
     </section>
     
 </template>
