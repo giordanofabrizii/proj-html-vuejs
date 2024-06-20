@@ -42,6 +42,7 @@ export default{
         transition: all .3s linear;
         padding: 1rem;
         border-radius: 5rem;
+        width: max-content;
 
         a{
             color: $black;
