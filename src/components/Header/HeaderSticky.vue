@@ -175,6 +175,7 @@ export default {
             cartIconData:{
                 url: 'src/assets/img/icon/cart-icon.png',
                 title: 'Shop cart',
+                active: false,
             },
             shopList:{
                 items: [
@@ -206,8 +207,12 @@ export default {
     },
     methods: {
     updateScroll() {
-            this.scrollPosition = window.scrollY
-        }
+        this.scrollPosition = window.scrollY
+    },
+    turnCartShop(){
+        this.cartIconData.active = !this.cartIconData.active
+        console.log('click')
+    },
     },
     mounted() {
         window.addEventListener('scroll', this.updateScroll);
@@ -248,13 +253,13 @@ export default {
                         </li>
                     </ul>
                     <div id="shop-liveStream">
-                        <div id="div-cart">
+                        <div id="div-cart" @click="turnCartShop()">
                             <img :src="cartIconData.url" :alt="cartIconData.title" id="img-cart">
                             <div id="numero-item">
                                 {{ `0${shopList.items.length}` }}
                             </div>
 
-                            <div id="dropdown-shop" class="no-display-1">
+                            <div id="dropdown-shop" :class="(cartIconData.active === true) ? 'display' : 'no-display-1'">
                                 <div class="flex spacebetween">
                                     <h3>
                                         Cart
@@ -265,9 +270,7 @@ export default {
                                 </div>
                                 <ul id="cart">
                                     <li v-for="(item,index) in shopList.items" :key="index">
-                                        <div class="flex">
-                                            <i class="fa-solid fa-x"></i>
-                                        </div>
+                                        <i class="fa-solid fa-x no-display-2"></i>
                                         <a href="" class="flex flex-start">
                                             <div id="img-cart">
                                                 <img :src="item.url" :alt="item.title">
@@ -511,19 +514,50 @@ h2{
 ul#cart{
     display: flex;
     flex-direction: column;
+
+    li{
+        border: 2px solid #435980;
+        border-radius: .5rem;
+        padding: .5rem;
+        margin-bottom: .5rem;
+        position: relative;
+
+        i{
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: translateY(-40%);
+        }
+    }
 }
 
 #dropdown-shop{
     position: absolute;
     top: 0;
     right: 0;
+    background-color: $blue;
+    padding: 1.5rem;
+    border-radius: .5rem;
+
+    h3{
+        color: $white;
+        font-size: 18px;
+    }
 
     h4{
         margin-bottom: .5rem;
+        color: $white;
+        font-family: 'Barlow';
+        font-size: 18px;
+        width: 9rem;
+
     }
 
     h5{
         margin-right: .5rem;
+        font-family: 'Barlow';
+        font-size: 18px;
+
         &.old-price{
             text-decoration: line-through;
             color: $light-green;
@@ -537,6 +571,15 @@ div#img-cart{
         height: 100px;
         width: 100px;
     }
+}
+
+div.flex.spacebetween{
+    padding: .6rem;
+}
+
+.display{
+    visibility: visible;
+    opacity: 1;
 }
 
 
