@@ -1,6 +1,7 @@
 <script>
 import ButtonApp from '../ButtonApp.vue';
-import "@fontsource/barlow" 
+import "@fontsource/barlow" ;
+import "@fontsource/orbitron/700.css";
 
 export default {
     components:{
@@ -11,7 +12,7 @@ export default {
             titleData:{
                 hOne: 'Future of Esports',
                 hTwo: 'Game withLive Streaming',
-                p: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium Explore games icon',
+                p: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
             },
             imgJumboData:{
                 url: 'src/assets/img/index-banner-illus.png',
