@@ -169,21 +169,24 @@ export default {
             buttonData:{
                 name: 'Live Streaming',
                 url: "'www.google.it'",
-            }
+            },
+            scrollPosition: null,
         }
     },
-    methods:{
-
+    methods: {
+    updateScroll() {
+            this.scrollPosition = window.scrollY
+        }
     },
-    created(){
-
+    mounted() {
+        window.addEventListener('scroll', this.updateScroll);
     }
 }
 </script>
 
 <template>
-        <div class="small-container">
-            <nav>
+        <header class="fixed" :class="{change_color: scrollPosition > 50}">
+            <nav class="small-container">
                 <div id="logo">
                     <img :src="logoData.url" :alt="logoData.title">
                 </div>
@@ -225,12 +228,29 @@ export default {
                     </div>
                 </div>
             </nav>
-        </div>
+        </header>
 </template>
 
 <style lang="scss" scoped>
 @use '../../styles/partials/variables' as *;
 @use '../../styles/general.scss';
+
+
+.fixed{
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 110rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+
+.change_color {
+    background-color: #1b222e !important;
+    width: 100%;
+    height: 7rem;
+}
 
 div#ul-liveStreaming{
     display: flex;
@@ -381,14 +401,6 @@ h2{
     margin-right: 1rem;
 }
 
-.small-container{
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    width: 110rem;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
 
 
 </style>
