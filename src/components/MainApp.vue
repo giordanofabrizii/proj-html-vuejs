@@ -29,7 +29,6 @@ export default{
 </script>
 
 <template>
-    <h1>Main</h1>
     <MainFirstSection/>
     <MainSecondSection/>
     <MainThirdSection/>

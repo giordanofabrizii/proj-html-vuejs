@@ -1,5 +1,9 @@
 <script>
+import ButtonApp from './ButtonApp.vue';
 export default{
+    components:{
+        ButtonApp,
+    },
     data() {
         return{
             features: [
@@ -21,59 +25,71 @@ export default{
                 title: 'Gaming News',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor.'
                 }
-            ]
-        };
+            ],
+            buttonData:{
+                name: 'PLAN NOW >>',
+            }
+        }
     }
 }
 </script>
 
 <template>
-    <!-- Make your mark -->
-    <div class=".small-container">
-        <div class="image-container">
-            <img src="../assets/img/features-illus.png" alt="features-illus">
-        </div>
-        <div class="content-container">
-            <h1>
-                The Ultimate Competitive Gaming Platform
-            </h1>
-            <h2>
-                Make Your Mark On The Battle Field
-            </h2>
-            <p>
-                libero malesuada feugiat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta.
-            </p>
-            <div class="features">
-                <div class="feature" v-for="feature in features" :key="feature.id">
-                    <div class="icon">
-                        <img :src="feature.icon" alt="Icona">
+    <section>
+        <!-- Make your mark -->
+        <div class="small-container">
+            <div class="image-container">
+                <img src="../assets/img/features-illus.png" alt="features-illus">
+            </div>
+            <div class="content-container">
+                <h1>
+                    The Ultimate Competitive Gaming Platform
+                </h1>
+                <h2>
+                    Make Your Mark On The Battle Field
+                </h2>
+                <p>
+                    libero malesuada feugiat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta.
+                </p>
+                <div class="features">
+                    <div class="feature" v-for="feature in features" :key="feature.id">
+                        <div class="icon">
+                            <img :src="feature.icon" alt="Icona">
+                        </div>
+                        <div class="title">
+                            <h3>{{ feature.title }}</h3>
+                            <p>{{ feature.description }}</p>
+                        </div>
                     </div>
-                    <div class="title">
-                        <h3>{{ feature.title }}</h3>
-                        <p>{{ feature.description }}</p>
-                    </div>
+                    <ButtonApp
+                        :name="buttonData.name"
+                    />
                 </div>
-                <button>PLAY NOW!</button>
             </div>
         </div>
-    </div>
-
-
+    </section>
 </template>
 
 <style lang="scss" scoped>
-    .\.small-container{
+@use '../styles/partials/mixins' as *;
+@use '../styles/partials/variables' as *;
+@use '../styles/general.scss' as *;
+
+section{
+    background-color: $black;
+}
+    .small-container{
         display: flex;
-        background-color: #000000;
         color: white;
         padding: 7rem 5rem;
         
         .image-container{
             width: 50%; 
+            position: relative;
 
             img{
                 position: absolute;
-                right: 55.5rem;
+                right: 2rem;
                 
             }
         }
@@ -84,7 +100,7 @@ export default{
             padding: 0 3.5rem 0 1rem;;
 
             h1{
-                color: #94cb53;
+                color: $light-green;
                 font-size: 24px;
             }
 
@@ -94,10 +110,11 @@ export default{
             }
 
             p{
-                color: #c2c2c2;
+                color: $gray;
                 font-size: 18px;
                 margin-bottom: 20px;
                 line-height: 25px;
+                font-family: 'barlow';
             }
         }
 
