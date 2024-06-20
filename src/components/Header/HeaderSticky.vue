@@ -1,5 +1,6 @@
 <script>
 import ButtonApp from '../ButtonApp.vue';
+import "@fontsource/barlow/600.css";
 export default {
     components:{
         ButtonApp,
@@ -456,7 +457,8 @@ h2{
     top: 0;
     right: 17px;
     transform: translateY(-50%);
-    font-size: .8rem;
+    font-family: 'Barlow';
+    font-weight: 600;
 }
 
 #dropdown-shop{
