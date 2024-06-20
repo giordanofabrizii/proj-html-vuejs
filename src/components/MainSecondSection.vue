@@ -38,7 +38,7 @@ export default{
                 }
             ],
             buttonData:{
-                name: 'VIEW ALLA MATCH >>',
+                name: 'VIEW ALL MATCH >>',
             }
         }
     }
@@ -46,8 +46,7 @@ export default{
 </script>
 
 <template>
-    <!-- Keep eyes -->
-     <section>
+    <section>
         <div class="small-container">
             <h1 class="title">
                 Trending Battle
@@ -85,18 +84,22 @@ export default{
                     :name="buttonData.name"
             />
         </div>
-     </section>
+    </section>
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/variables' as *;
+@use '../styles/general.scss';
+section{
+    background-color: $blue;
+
     .small-container{
-        background-color: #222833;
         text-align: center;
         padding: 6rem 0rem;
     }
 
     .title{
-        color: #94cb53;
+        color: $light-green;
         font-size: 24px;
         
     }
@@ -110,7 +113,7 @@ export default{
     }
 
     .description{
-        color: #c2c2c2;
+        color: $gray;
         font-size: 18px;
         margin-bottom: 20px;
         line-height: 25px;
@@ -130,11 +133,11 @@ export default{
             padding: 20px 0px;
             margin: 15px;
             text-align: center;
-            color: #fff;
+            color: $white;
             border: 1px #465c81 solid;
     
             p{
-                    color: #94cb53;
+                    color: $light-green;
                     font-family: 'barlow';
                 }
     
@@ -152,7 +155,6 @@ export default{
                 .verus-icon{
                     padding: 0px 50px;
                 }
-               
             }
     
             .platform-icons {
@@ -188,5 +190,7 @@ export default{
             }
         }
     }
+}
+
 
 </style>
