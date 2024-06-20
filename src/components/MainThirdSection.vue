@@ -1,92 +1,153 @@
 <script>
+import { ref, onMounted, onUnmounted } from 'vue';
 import ButtonApp from './ButtonApp.vue';        
 import CircleButtonApp from './CircleButtonApp.vue';
 
-export default{
+export default {
     data() {
-        return{
-            facts:[
-                {
-                name: 'Twitch Streams',
-                num: 5975,
-                },
-                {
-                name: 'Total Games',
-                num: 234,
-                },
-                {
-                name: 'Youtube Streams',
-                num: 5169,
-                },
-                {
-                name: 'Pro Team',
-                num: 215,
-                },
-            ]
-        }
+    return {
+        facts: [
+        {
+            name: 'Twitch Streams',
+            num: 5975,
+        },
+        {
+            name: 'Total Games',
+            num: 234,
+        },
+        {
+            name: 'Youtube Streams',
+            num: 5169,
+        },
+        {
+            name: 'Pro Team',
+            num: 215,
+        },
+        ],
+        observedElements: [],
+    };
     },
-    components:{
-        ButtonApp,
-        CircleButtonApp
+    components: {
+    ButtonApp,
+    CircleButtonApp,
+    },
+    setup() {
+    const observedElements = ref([]);
+    let observer = null;
+
+    const handleIntersection = (entries) => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // console.log('Elemento è entrato nella viewport');
+            yourFunction(entry.target);
+        }
+        });
+    };
+
+    const yourFunction = (element) => {
+        let numEl = (element.querySelector('h2'));
+        let num = numEl.innerHTML;
+        let current = 0;
+        numEl.innerHTML = current
+        // while (current != num) {
+        //     setTimeout(() => {
+        //         current += 1
+        //     }, 100);
+        // }
+
+
+    };
+
+    const setObservedElement = (el) => {
+        if (el) {
+        observedElements.value.push(el);
+        }
+    };
+    onMounted(() => {
+        observer = new IntersectionObserver(handleIntersection, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 1.0,
+        });
+
+        observedElements.value.forEach(element => {
+        observer.observe(element);
+        });
+    });
+
+    onUnmounted(() => {
+        if (observer) {
+        observedElements.value.forEach(element => {
+            observer.unobserve(element);
+        });
+        }
+    });
+
+    return {
+        setObservedElement,
+    };
     }
-}
+};
 </script>
 
 <template>
     <section>
-        <div class="small-container">
-            <h1>Futio Quick Facts</h1>
-            <div id="card-container">
-                <article v-for="fact in facts">
-                    <h2>{{fact.num}}</h2>
-                    <p>{{ fact.name }}</p>
-                </article>
-            </div>
-
+    <div class="small-container">
+        <h1>Futio Quick Facts</h1>
+        <div id="card-container">
+        <article 
+            v-for="(fact, index) in facts" 
+            :key="index"
+            :ref="setObservedElement"
+        >
+            <h2>{{ fact.num }}</h2>
+            <p>{{ fact.name }}</p>
+        </article>
         </div>
+    </div>
     </section>
 </template>
+
 
 <style lang="scss" scoped>
 @use '../styles/general.scss';
 @use '../styles/partials/variables' as *;
 @use '../styles/partials/mixins' as *;
 
-section{
+section {
     background-color: $black;
     padding: 6rem 0;
     color: white;
 
-    h1{
-        font-size: 3rem;
-        font-weight: 900;
-        text-align: center;
+    h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
     }
 
-    #card-container{
-        @include flexRow;
-        justify-content: center;
+    #card-container {
+    @include flexRow;
+    justify-content: center;
 
-        article{
-            margin: 1rem;
-            padding: 2rem;
-            border: 1px solid $blue;
-            border-radius: 2rem;
-            width: calc(70rem / 4 - 1rem);
+    article {
+        margin: 1rem;
+        padding: 2rem;
+        border: 1px solid $blue;
+        border-radius: 2rem;
+        width: calc(70rem / 4 - 1rem);
 
-            h2{
-                text-align: center;
-                font-size: 2.5rem;
-                margin-bottom: .5rem;
-            }
+        h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: .5rem;
+        }
 
-            p{
-                color: $light-green;
-                font-size: .7rem;
-                text-align: center;
-            }
+        p {
+        color: $light-green;
+        font-size: .7rem;
+        text-align: center;
         }
     }
+    }
 }
-
 </style>
