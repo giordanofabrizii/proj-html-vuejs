@@ -15,9 +15,11 @@ export default {
 </script>
 
 <template>
-    <h1>
-        Jumbotron
-    </h1>
+    <section>
+        <h1>
+            HeaderJumbotron
+        </h1>
+    </section>
 </template>
 
 <style scoped>
