@@ -261,6 +261,7 @@ section.copyright{
 
     a{
         color: $light-green;
+        font-family: "Barlow", sans-serif;
     }
 }
 
