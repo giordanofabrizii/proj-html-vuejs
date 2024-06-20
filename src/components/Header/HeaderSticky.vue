@@ -231,6 +231,7 @@ export default {
 
 <style lang="scss" scoped>
 @use '../../styles/partials/variables' as *;
+@use '../../styles/general.scss';
 
 div#ul-liveStreaming{
     display: flex;
@@ -379,6 +380,12 @@ h2{
 
 #button{
     margin-right: 1rem;
+}
+
+.small-container{
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 
