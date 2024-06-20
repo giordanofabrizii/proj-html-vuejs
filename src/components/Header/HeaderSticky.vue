@@ -201,8 +201,12 @@ export default {
                         url: 'src/assets/img/shop-image-8.png',
                         active: true,
                     },
-                ]
+                ],
             },
+            buttonShopData:{
+                    name: 'CHECKOUT',
+                    url: 'www.google.it',
+                }
         }
     },
     methods: {
@@ -264,9 +268,9 @@ export default {
                                     <h3>
                                         Cart
                                     </h3>
-                                    <h4>
+                                    <h3 id="font">
                                         {{ `0${shopList.items.length}` }}
-                                    </h4>
+                                    </h3>
                                 </div>
                                 <ul id="cart">
                                     <li v-for="(item,index) in shopList.items" :key="index">
@@ -293,6 +297,12 @@ export default {
                                         </a>
                                     </li>
                                 </ul>
+
+                                <ButtonApp
+                                :name="buttonShopData.name"
+                                :url="buttonShopData.url"
+                                id="button-cartShop"
+                                />
                             </div>
                         </div>
                         <ButtonApp
@@ -522,6 +532,10 @@ ul#cart{
         margin-bottom: .5rem;
         position: relative;
 
+        &:last-child{
+            margin-bottom: 1.5rem;
+        }
+
         i{
             position: absolute;
             right: 0;
@@ -533,15 +547,21 @@ ul#cart{
 
 #dropdown-shop{
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 75px;
+    right: 25px;
     background-color: $blue;
-    padding: 1.5rem;
+    padding: 0 1rem 1.5rem 1.5rem;
     border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
 
     h3{
         color: $white;
         font-size: 18px;
+    }
+
+    h3#font{
+        font-family: 'Barlow';
     }
 
     h4{
@@ -574,12 +594,16 @@ div#img-cart{
 }
 
 div.flex.spacebetween{
-    padding: .6rem;
+    padding: 1rem 0;
 }
 
 .display{
     visibility: visible;
     opacity: 1;
+}
+
+#button-cartShop{
+    margin: 0 auto;
 }
 
 
