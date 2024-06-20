@@ -142,6 +142,15 @@ export default{
                 <p>{{ this.contactNav.phone }}</p>
             </div>
         </section>
+        <section class="copyright">
+            <p>
+                Copyright &#169; 2022
+                <a href="#" @click="window.location.reload()">
+                    FUTIO
+                </a>
+                . All rights reserved.
+            </p>
+        </section>
     </footer>    
 </template>
 
@@ -153,8 +162,7 @@ export default{
 footer{
     background-color: $blue;
     color: $white;
-    font-size: 1.2rem;
-    padding: 4rem 1rem;
+    font-size: 1rem;
 }
 
 p{
@@ -162,6 +170,7 @@ p{
 }
 
 section.navbar{
+    padding: 4rem 17rem;
     display: flex;
     justify-content: space-between;
     align-items: start;
@@ -239,6 +248,21 @@ div.contacts p.green-font{
 
 div.contacts p{
     margin-bottom: .8rem;
+}
+
+section.copyright{
+    background-color: #1b222e;
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+
+    a{
+        color: $light-green;
+        font-family: "Barlow", sans-serif;
+    }
 }
 
 </style>
