@@ -1,5 +1,9 @@
 <script>
+import ButtonApp from './ButtonApp.vue';
 export default{
+    components:{
+        ButtonApp,
+    },
     data() {
         return{
             features: [
@@ -21,8 +25,11 @@ export default{
                 title: 'Gaming News',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor.'
                 }
-            ]
-        };
+            ],
+            buttonData:{
+                name: 'PLAN NOW >>',
+            }
+        }
     }
 }
 </script>
@@ -53,7 +60,9 @@ export default{
                         <p>{{ feature.description }}</p>
                     </div>
                 </div>
-                <button>PLAY NOW!</button>
+                <ButtonApp
+                    :name="buttonData.name"
+                />
             </div>
         </div>
     </div>
@@ -98,6 +107,7 @@ export default{
                 font-size: 18px;
                 margin-bottom: 20px;
                 line-height: 25px;
+                font-family: 'barlow';
             }
         }
 
