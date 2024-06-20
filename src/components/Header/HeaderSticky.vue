@@ -175,7 +175,29 @@ export default {
                 url: 'src/assets/img/icon/cart-icon.png',
                 title: 'Shop cart',
             },
-            shopList:[],
+            shopList:{
+                items: [
+                    {
+                        name: 'Havit RGB Headphone',
+                        price: '$380.00',
+                        oldPrice: '$410.00',
+                        url: 'src/assets/img/shop-image-3.png',
+                        active: true,
+                    },{
+                        name: 'Touch Controller Grip',
+                        price: '$380.00',
+                        oldPrice: '$410.00',
+                        url: 'src/assets/img/shop-image-5.png',
+                        active: true,
+                    },{
+                        name: 'Gaming Microphone',
+                        price: '$380.00',
+                        oldPrice: '$410.00',
+                        url: 'src/assets/img/shop-image-8.png',
+                        active: true,
+                    },
+                ]
+            },
         }
     },
     methods: {
@@ -225,7 +247,11 @@ export default {
                         <div id="div-cart">
                             <img :src="cartIconData.url" :alt="cartIconData.title" id="img-cart">
                             <div id="numero-item">
-                                {{ shopList.length }}
+                                {{ `0${shopList.items.length}` }}
+                            </div>
+
+                            <div id="dropdown-shop">
+
                             </div>
                         </div>
                         <ButtonApp
@@ -420,16 +446,21 @@ h2{
 #numero-item{
     color: $blue;
     background-color: $green;
-    width: 25px;
-    height: 25px;
+    width: 27px;
+    height: 27px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     position: absolute;
     top: 0;
-    right: 18px;
+    right: 17px;
     transform: translateY(-50%);
+    font-size: .8rem;
+}
+
+#dropdown-shop{
+    position: absolute;
 }
 
 
