@@ -217,6 +217,10 @@ export default {
         this.cartIconData.active = !this.cartIconData.active
         console.log('click')
     },
+    deleteItem(indice){
+        this.shopList.items[indice].splice(indice, 1);
+        console.log('dovrei cancellare')
+    },
     },
     mounted() {
         window.addEventListener('scroll', this.updateScroll);
@@ -274,7 +278,7 @@ export default {
                                 </div>
                                 <ul id="cart">
                                     <li v-for="(item,index) in shopList.items" :key="index">
-                                        <i class="fa-solid fa-x no-display-2"></i>
+                                        <i class="fa-solid fa-x" @click="deleteItem(index)"></i>
                                         <a href="" class="flex flex-start">
                                             <div id="img-cart">
                                                 <img :src="item.url" :alt="item.title">
