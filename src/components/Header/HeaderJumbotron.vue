@@ -39,35 +39,35 @@ export default {
 <template>
     <section>
         <div class="small-container">
-        <div class="w-60">
-            <h2>
-                {{ titleData.hTwo }}
-            </h2>
-            <h1>
-                {{ titleData.hOne }}
-            </h1>
-            <p>
-                {{ titleData.p }}
-            </p>
-            <div id="bottoni">
-                <div>
-                    <ButtonApp
-                    :name="buttonData.name"
-                    :url="buttonData.url"
-                    />
-                </div>
+            <div>
+                <h2>
+                    {{ titleData.hTwo }}
+                </h2>
+                <h1>
+                    {{ titleData.hOne }}
+                </h1>
+                <p>
+                    {{ titleData.p }}
+                </p>
+                <div id="bottoni">
+                    <div>
+                        <ButtonApp
+                        :name="buttonData.name"
+                        :url="buttonData.url"
+                        />
+                    </div>
 
-            <div id="player-border">
-                <div id="player">
-                    <img :src="playerData.url" :alt="playerData.title">
+                    <div id="player-border">
+                        <div id="player">
+                            <img :src="playerData.url" :alt="playerData.title">
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div>
+                <img :src="imgJumboData.url" :alt="imgJumboData.title">
             </div>
         </div>
-        <div class="w-40">
-            <img :src="imgJumboData.url" :alt="imgJumboData.title">
-        </div>
-    </div>
     </section>
     
 </template>
@@ -94,16 +94,6 @@ export default {
             font-size: 24px;
             font-family: 'Barlow';
         }
-    }
-    div.w-40{
-        width: 40%;
-
-        img{
-            width: 100%;
-        }
-    }
-    div.w-60{
-        width: 60%;
     }
 
     div#player{
@@ -134,6 +124,6 @@ export default {
     section{
         background-image: url('src/assets/img/index-banner-bg.png');
         background-size: cover;
-        padding-top: 5rem;
+        padding-top: 0rem;
     }
 </style>

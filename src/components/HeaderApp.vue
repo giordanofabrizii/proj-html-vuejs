@@ -17,9 +17,7 @@ export default{
 
 <template>
   
-    <HeaderSticky
-    id="sticky"
-    />
+    <HeaderSticky/>
 
     <HeaderJumbotron/>
   
