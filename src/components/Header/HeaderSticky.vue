@@ -1,5 +1,6 @@
 <script>
 import ButtonApp from '../ButtonApp.vue';
+import "@fontsource/barlow/600.css";
 export default {
     components:{
         ButtonApp,
@@ -171,12 +172,55 @@ export default {
                 url: "'www.google.it'",
             },
             scrollPosition: null,
+            cartIconData:{
+                url: 'src/assets/img/icon/cart-icon.png',
+                title: 'Shop cart',
+                active: false,
+            },
+            shopList:{
+                items: [
+                    {
+                        name: 'Havit RGB Headphone',
+                        title: 'Cuffie RGB Havit',
+                        price: '$380.00',
+                        oldPrice: '$410.00',
+                        url: 'src/assets/img/shop-image-3.png',
+                        active: true,
+                    },{
+                        name: 'Touch Controller Grip',
+                        title: 'Controller grip touch',
+                        price: '$380.00',
+                        oldPrice: '$410.00',
+                        url: 'src/assets/img/shop-image-5.png',
+                        active: true,
+                    },{
+                        name: 'Gaming Microphone',
+                        title: 'Microfono da gaming',
+                        price: '$380.00',
+                        oldPrice: '$410.00',
+                        url: 'src/assets/img/shop-image-8.png',
+                        active: true,
+                    },
+                ],
+            },
+            buttonShopData:{
+                    name: 'CHECKOUT',
+                    url: 'www.google.it',
+                }
         }
     },
     methods: {
     updateScroll() {
-            this.scrollPosition = window.scrollY
-        }
+        this.scrollPosition = window.scrollY
+    },
+    turnCartShop(){
+        this.cartIconData.active = !this.cartIconData.active
+        console.log('click')
+    },
+    deleteItem(indice){
+        this.shopList.items[indice].splice(indice, 1);
+        console.log('dovrei cancellare')
+    },
     },
     mounted() {
         window.addEventListener('scroll', this.updateScroll);
@@ -217,9 +261,54 @@ export default {
                         </li>
                     </ul>
                     <div id="shop-liveStream">
-                        <h2>
-                            logo carrello
-                        </h2>
+                        <div id="div-cart" @click="turnCartShop()">
+                            <img :src="cartIconData.url" :alt="cartIconData.title" id="img-cart">
+                            <div id="numero-item">
+                                {{ `0${shopList.items.length}` }}
+                            </div>
+
+                            <div id="dropdown-shop" :class="(cartIconData.active === true) ? 'display' : 'no-display-1'">
+                                <div class="flex spacebetween">
+                                    <h3>
+                                        Cart
+                                    </h3>
+                                    <h3 id="font">
+                                        {{ `0${shopList.items.length}` }}
+                                    </h3>
+                                </div>
+                                <ul id="cart">
+                                    <li v-for="(item,index) in shopList.items" :key="index">
+                                        <i class="fa-solid fa-x" @click="deleteItem(index)"></i>
+                                        <a href="" class="flex flex-start">
+                                            <div id="img-cart">
+                                                <img :src="item.url" :alt="item.title">
+                                            </div>
+                                            <div>
+                                                <div>
+                                                    <h4>
+                                                        {{ item.name }}
+                                                    </h4>
+                                                </div>
+                                                <div class="flex">
+                                                    <h5>
+                                                        {{ item.price }}
+                                                    </h5>
+                                                    <h5 class="old-price">
+                                                        {{ item.oldPrice }}
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <ButtonApp
+                                :name="buttonShopData.name"
+                                :url="buttonShopData.url"
+                                id="button-cartShop"
+                                />
+                            </div>
+                        </div>
                         <ButtonApp
                         :name="buttonData.name"
                         :url="buttonData.url"
@@ -391,6 +480,17 @@ i{
     position: relative;
 }
 
+.flex{
+    display: flex;
+}
+
+.spacebetween{
+    justify-content: space-between;
+}
+.flex-start{
+    align-items: flex-start;
+}
+
 /*Da togliere*/
 h2{
     color: white;
@@ -399,6 +499,115 @@ h2{
 
 #button{
     margin-right: 1rem;
+}
+
+#img-cart{
+    margin-right: 2rem;
+}
+
+#div-cart{
+    position: relative;
+}
+
+#numero-item{
+    color: $blue;
+    background-color: $green;
+    width: 27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 17px;
+    transform: translateY(-50%);
+    font-family: 'Barlow';
+    font-weight: 600;
+}
+ul#cart{
+    display: flex;
+    flex-direction: column;
+
+    li{
+        border: 2px solid #435980;
+        border-radius: .5rem;
+        padding: .5rem;
+        margin-bottom: .5rem;
+        position: relative;
+
+        &:last-child{
+            margin-bottom: 1.5rem;
+        }
+
+        i{
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: translateY(-40%);
+        }
+    }
+}
+
+#dropdown-shop{
+    position: absolute;
+    top: 75px;
+    right: 25px;
+    background-color: $blue;
+    padding: 0 1rem 1.5rem 1.5rem;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+
+    h3{
+        color: $white;
+        font-size: 18px;
+    }
+
+    h3#font{
+        font-family: 'Barlow';
+    }
+
+    h4{
+        margin-bottom: .5rem;
+        color: $white;
+        font-family: 'Barlow';
+        font-size: 18px;
+        width: 9rem;
+
+    }
+
+    h5{
+        margin-right: .5rem;
+        font-family: 'Barlow';
+        font-size: 18px;
+
+        &.old-price{
+            text-decoration: line-through;
+            color: $light-green;
+        }
+    }
+}
+
+div#img-cart{
+
+    img{
+        height: 100px;
+        width: 100px;
+    }
+}
+
+div.flex.spacebetween{
+    padding: 1rem 0;
+}
+
+.display{
+    visibility: visible;
+    opacity: 1;
+}
+
+#button-cartShop{
+    margin: 0 auto;
 }
 
 
