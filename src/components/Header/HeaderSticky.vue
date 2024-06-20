@@ -182,51 +182,50 @@ export default {
 </script>
 
 <template>
-    <div class="small-container">
-        <nav>
-            <div id="logo">
-                <img :src="logoData.url" :alt="logoData.title">
-            </div>
-            <div id="ul-liveStreaming">
-                <ul>
-                    <li v-for="(li,index) in ulData" :key="index" class="relative">
-                        <a :href="li.href" :class="(li.active) ? 'active' : ''">
-                            {{ li.name }}
-                        </a>
-                        <i class="fa-solid fa-angle-down fa-xl" v-if="li.other"></i>
-                        
-                        <ul v-if="(li.other)" id="ul-top" class="dropdown dropdown-transi no-display-1 flex-column">
-                            <li v-for="(liLi,index) in li.other" :key="index" :class="(liLi.dropdown) ? 'display-2 relative' : ''" >
-                                <a :href="liLi.href" class="a_dropdown">
-                                    {{ liLi.name }}
-                                    <!--Messo icon dentro a secondo voi ?-->
-                                    <i class="fa-solid fa-caret-right fa-xs" v-if="liLi.other"></i>
-                                </a>
-                                <ul v-if="(liLi.other)" id="ul-right" class="dropdown no-display-2 flex-column">
-                                    <li v-for="(liLiLi,index) in liLi.other" :key="index">
-                                        <a :href="liLiLi.href" class="a_dropdown">
-                                            {{ liLiLi.name }}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>                 
-                    </li>
-                </ul>
-                <div id="shop-liveStream">
-                    <h2>
-                        logo carrello
-                    </h2>
-                    <ButtonApp
-                    :name="buttonData.name"
-                    :url="buttonData.url"
-                    id="button"
-                    />
+        <div class="small-container">
+            <nav>
+                <div id="logo">
+                    <img :src="logoData.url" :alt="logoData.title">
                 </div>
-            </div>
-        </nav>
-    </div>
-
+                <div id="ul-liveStreaming">
+                    <ul>
+                        <li v-for="(li,index) in ulData" :key="index" class="relative">
+                            <a :href="li.href" :class="(li.active) ? 'active' : ''">
+                                {{ li.name }}
+                            </a>
+                            <i class="fa-solid fa-angle-down fa-xl" v-if="li.other"></i>
+                            
+                            <ul v-if="(li.other)" id="ul-top" class="dropdown dropdown-transi no-display-1 flex-column">
+                                <li v-for="(liLi,index) in li.other" :key="index" :class="(liLi.dropdown) ? 'display-2 relative' : ''" >
+                                    <a :href="liLi.href" class="a_dropdown">
+                                        {{ liLi.name }}
+                                        <!--Messo icon dentro a secondo voi ?-->
+                                        <i class="fa-solid fa-caret-right fa-xs" v-if="liLi.other"></i>
+                                    </a>
+                                    <ul v-if="(liLi.other)" id="ul-right" class="dropdown no-display-2 flex-column">
+                                        <li v-for="(liLiLi,index) in liLi.other" :key="index">
+                                            <a :href="liLiLi.href" class="a_dropdown">
+                                                {{ liLiLi.name }}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>                 
+                        </li>
+                    </ul>
+                    <div id="shop-liveStream">
+                        <h2>
+                            logo carrello
+                        </h2>
+                        <ButtonApp
+                        :name="buttonData.name"
+                        :url="buttonData.url"
+                        id="button"
+                        />
+                    </div>
+                </div>
+            </nav>
+        </div>
 </template>
 
 <style lang="scss" scoped>
@@ -386,6 +385,9 @@ h2{
     position: fixed;
     top: 0;
     z-index: 1;
+    width: 110rem;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 
