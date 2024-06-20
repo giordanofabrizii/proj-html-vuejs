@@ -168,120 +168,90 @@ export default {
             },
             buttonData:{
                 name: 'Live Streaming',
-            }
+                url: "'www.google.it'",
+            },
+            scrollPosition: null,
         }
     },
-    methods:{
-
+    methods: {
+    updateScroll() {
+            this.scrollPosition = window.scrollY
+        }
     },
-    created(){
-
+    mounted() {
+        window.addEventListener('scroll', this.updateScroll);
     }
 }
 </script>
 
 <template>
-    <div class="small-container">
-        <nav>
-            <div id="logo">
-                <img :src="logoData.url" :alt="logoData.title">
-            </div>
-            <div id="ul-liveStreaming">
-                <ul>
-                    <li v-for="(li,index) in ulData" :key="index" class="relative">
-                        <a :href="li.href" :class="(li.active) ? 'active' : ''">
-                            {{ li.name }}
-                        </a>
-                        <i class="fa-solid fa-angle-down fa-xl" v-if="li.other"></i>
-                        
-                        <ul v-if="(li.other)" id="ul-top" class="dropdown dropdown-transi no-display-1 flex-column">
-                            <li v-for="(liLi,index) in li.other" :key="index" :class="(liLi.dropdown) ? 'display-2' : ''">
-                                <a :href="liLi.href" class="a_dropdown" :class="(liLi.dropdown) ? 'relative' : ''">
-                                    {{ liLi.name }}
-                                    <!--Messo icon dentro a secondo voi ?-->
-                                    <i class="fa-solid fa-caret-right fa-xs" v-if="liLi.other"></i>
-                                </a>
-                                <ul v-if="(liLi.other)" id="ul-right" class="dropdown no-display-2 flex-column">
-                                    <li v-for="(liLiLi,index) in liLi.other" :key="index">
-                                        <a :href="liLiLi.href" class="a_dropdown">
-                                            {{ liLiLi.name }}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>                 
-                    </li>
-                </ul>
-                <div id="shop-liveStream">
-                    <h2>
-                        logo carrello
-                    </h2>
-                    <ButtonApp
-                    :name="buttonData.name"
-                    />
+        <header class="fixed" :class="{change_color: scrollPosition > 50}">
+            <nav class="small-container">
+                <div id="logo">
+                    <img :src="logoData.url" :alt="logoData.title">
                 </div>
-            </div>
-        </nav>
-    </div>
-
+                <div id="ul-liveStreaming">
+                    <ul>
+                        <li v-for="(li,index) in ulData" :key="index" class="relative">
+                            <a :href="li.href" :class="(li.active) ? 'active' : ''">
+                                {{ li.name }}
+                            </a>
+                            <i class="fa-solid fa-angle-down fa-xl" v-if="li.other"></i>
+                            
+                            <ul v-if="(li.other)" id="ul-top" class="dropdown dropdown-transi no-display-1 flex-column">
+                                <li v-for="(liLi,index) in li.other" :key="index" :class="(liLi.dropdown) ? 'display-2 relative' : ''" >
+                                    <a :href="liLi.href" class="a_dropdown">
+                                        {{ liLi.name }}
+                                        <!--Messo icon dentro a secondo voi ?-->
+                                        <i class="fa-solid fa-caret-right fa-xs" v-if="liLi.other"></i>
+                                    </a>
+                                    <ul v-if="(liLi.other)" id="ul-right" class="dropdown no-display-2 flex-column">
+                                        <li v-for="(liLiLi,index) in liLi.other" :key="index">
+                                            <a :href="liLiLi.href" class="a_dropdown">
+                                                {{ liLiLi.name }}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>                 
+                        </li>
+                    </ul>
+                    <div id="shop-liveStream">
+                        <h2>
+                            logo carrello
+                        </h2>
+                        <ButtonApp
+                        :name="buttonData.name"
+                        :url="buttonData.url"
+                        id="button"
+                        />
+                    </div>
+                </div>
+            </nav>
+        </header>
 </template>
 
 <style lang="scss" scoped>
 @use '../../styles/partials/variables' as *;
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.7rem;
-    ul{
-        list-style-type: none;
-        display: flex;
-        width: max-content;
-        
-        .dropdown{
-            position: absolute;
-            min-width: 180px;
-            background-color: #1b222e;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
-            padding: 8px 0;
-        }
-        li:hover{
-            color: greenyellow;
-        }
-        li.relative{
-            margin-right: .7rem;
-            display: flex;
-            align-items: center;
-            &:hover .no-display-1{
-                visibility: visible;
-                opacity: 1;
-            }
-            a{
-                margin-right: .1rem;
-                font-size: 1.2rem;
-                color: white;
-            }
-            a.active{
-            color: greenyellow; /* Da mettere variabile Hover */
-            }
-        }
-        .display-2:hover .no-display-2{
-                    visibility: visible;
-                    opacity: 1;
-                }
-        .display-2:hover > a{
-            color: greenyellow; /* Da mettere variabile Hover */
-        }
-            a.a_dropdown{
-                padding: 5px 15px;
-                display: flex;
-                align-items: center;
-                i{
-                    margin-left: .3rem;
-                }
-            }
-    }
+@use '../../styles/general.scss';
+
+
+.fixed{
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 110rem;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
+
+
+.change_color {
+    background-color: #1b222e !important;
+    width: 100%;
+    height: 7rem;
+}
+
 div#ul-liveStreaming{
     display: flex;
     align-items: center;
@@ -289,6 +259,93 @@ div#ul-liveStreaming{
         display: flex;
         align-items: center;
         margin-left: 10%;
+    }
+}
+
+
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.7rem;
+
+    div#logo{
+        margin-right: 6rem;
+    }
+
+    ul{
+        list-style-type: none;
+        display: flex;
+        width: max-content;
+
+        .dropdown{
+            position: absolute;
+            min-width: 180px;
+            background-color: #1b222e;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+            padding: 8px 0;
+        }
+        > li {
+            margin-right: .2rem;
+        }
+
+        li{
+            a{
+                color: white;
+                margin-right: .1rem;
+                font-size: 1.2rem;
+            }
+
+            li:hover{
+                
+                > a,
+                i{
+                    color: $light_green;
+                }
+            }
+        }
+        
+        li.relative{
+            margin-right: 1.2rem;
+            display: flex;
+            align-items: center;
+
+            &:hover .no-display-1{
+                visibility: visible;
+                opacity: 1;
+            }
+
+            a.active{
+            color: $light_green; /* Da mettere variabile Hover */
+            }
+        }
+        
+        li.relative:hover{
+            > a,
+            > i{
+                color: $light_green;
+            }
+        }
+        
+        .display-2:hover .no-display-2{
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .display-2:hover > a,
+        .display-2:hover > i.fa-caret-right{
+            color: $light_green; /* Da mettere variabile Hover */
+        }
+        
+        a.a_dropdown{
+            padding: 5px 15px;
+            display: flex;
+            align-items: center;
+            i{
+                margin-left: .3rem;
+            }
+        }
     }
 }
 
@@ -301,7 +358,7 @@ div#ul-liveStreaming{
 }
 
 #ul-right{
-    bottom: 48%;
+    top: 35px;
     transform: translateY(-50%);
     left: 97%;
     border-radius: .25rem;
@@ -337,9 +394,13 @@ i{
 /*Da togliere*/
 h2{
     color: white;
+    margin-right: 1rem;
 }
 
-button{
-    padding: .8rem;
+#button{
+    margin-right: 1rem;
 }
+
+
+
 </style>

@@ -16,14 +16,17 @@ export default{
 </script>
 
 <template>
-  <header>
+  
     <HeaderSticky/>
+
     <HeaderJumbotron/>
-  </header>
+  
 </template>
 
 <style lang="scss" scoped>
   header{
-    background-image: url('src/assets/img/index-banner-bg.png');
+    
+
+    
   }
 </style>
