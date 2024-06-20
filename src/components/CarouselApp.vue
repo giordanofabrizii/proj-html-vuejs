@@ -159,9 +159,12 @@ export default{
             color: #ffba00;
         }
 
-        p{
+        >p{
             margin-top: 1rem;
-            max-width: 15rem;
+            max-width: 17rem;
+            font-family: Barlow, sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.5rem
         }
 
         .person{
