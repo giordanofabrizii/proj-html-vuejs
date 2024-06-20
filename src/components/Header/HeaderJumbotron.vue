@@ -126,4 +126,20 @@ export default {
         background-size: cover;
         padding-top: 0rem;
     }
+
+    div#div-controller{
+        height: 45%;
+        position: absolute;
+        bottom: 100px;
+        left: 0;
+        div.small-container{
+            z-index: 1;
+        }
+    }
+
+    img#img-controller{
+        opacity: .3;
+        height: 100%;
+        object-fit: none;
+    }
 </style>
