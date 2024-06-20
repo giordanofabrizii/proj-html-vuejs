@@ -89,18 +89,32 @@ export default {
         h2{
         color: $light-green;
         font-size: 24px;
+        margin-bottom: .5rem;
         }
 
         h1{
             color: $white;
-            font-size: 57px;
+            font-size: 76px;
+            font-weight: 700;
+            margin-bottom: .8rem;
         }
 
         p{
             color: $gray;
             font-size: 24px;
             font-family: 'Barlow';
+            line-height: 2.3rem;
         }
+    }
+    div.w-58{
+        width: 58%;
+
+        img{
+            width: 100%;
+        }
+    }
+    div.w-38{
+        width: 38%;
     }
 
     div#player{
@@ -131,9 +145,9 @@ export default {
     section{
         background-image: url('src/assets/img/index-banner-bg.png');
         background-size: cover;
-        padding-top: 0rem;
+        position: relative;
+        // padding-top: 5rem;
     }
-
     div#div-controller{
         height: 45%;
         position: absolute;
