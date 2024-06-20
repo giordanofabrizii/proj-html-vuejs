@@ -171,6 +171,11 @@ export default {
                 url: "'www.google.it'",
             },
             scrollPosition: null,
+            cartIconData:{
+                url: 'src/assets/img/icon/cart-icon.png',
+                title: 'Shop cart',
+            },
+            shopList:[],
         }
     },
     methods: {
@@ -217,9 +222,12 @@ export default {
                         </li>
                     </ul>
                     <div id="shop-liveStream">
-                        <h2>
-                            logo carrello
-                        </h2>
+                        <div id="div-cart">
+                            <img :src="cartIconData.url" :alt="cartIconData.title" id="img-cart">
+                            <div id="numero-item">
+                                {{ shopList.length }}
+                            </div>
+                        </div>
                         <ButtonApp
                         :name="buttonData.name"
                         :url="buttonData.url"
@@ -399,6 +407,29 @@ h2{
 
 #button{
     margin-right: 1rem;
+}
+
+#img-cart{
+    margin-right: 2rem;
+}
+
+#div-cart{
+    position: relative;
+}
+
+#numero-item{
+    color: $blue;
+    background-color: $green;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 18px;
+    transform: translateY(-50%);
 }
 
 
