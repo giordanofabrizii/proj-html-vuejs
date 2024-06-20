@@ -106,13 +106,41 @@ export default{
                     </ul>
                 </nav>
             </section>
+
             <nav>
                 <h3>Quick Links</h3>
-                <ul></ul>
+                <ul v-for="(link, i) in quickLinksNav" :key="i">
+                    <li>
+                        <a href="#"> {{ link.title }}</a>
+                    </li>
+                </ul>
             </nav>
-            <nav></nav>
-            <nav></nav>
-            <nav></nav>
+
+            <nav>
+                <h3>Help</h3>
+                <ul v-for="(link, k) in helpNav" :key="k">
+                    <li>
+                        <a href="#"> {{ link.title }} </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <nav>
+                <h3>Follow Us</h3>
+                <ul v-for="(link, j) in helpNav" :key="j">
+                    <li>
+                        <a href="#">{{ link.title }}</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="contacts">
+                <h3>Contact</h3>
+                <p class="green-font">Location:</p>
+                <p> {{ this.contactNav.address }}</p>
+                <p class="green-font">Phone:</p>
+                <p>{{ this.contactNav.phone }}</p>
+            </div>
         </section>
     </footer>    
 </template>
@@ -145,8 +173,24 @@ nav.socials ul{
     align-items: center;
 
     li{
-        margin: .5rem
+        margin: .5rem;
     }
+}
+
+section.info{
+    width: 30%;
+
+    img{
+        width: 115px;
+    }
+
+    p{
+        margin: 1.5rem 0;
+    }
+}
+
+h3{
+    margin-bottom: 1rem;
 }
 
 a.social-icon{
@@ -163,8 +207,6 @@ a.social-icon{
         border-color: transparent;
     }
 
-
-
     &:hover i{
         color: $white;
     }
@@ -174,6 +216,29 @@ i{
     color: #b6b9da;
     width: 20px;
     height: 20px;
+}
+
+nav ul li{
+    margin: .7rem 0;
+
+    a{
+        color: #cccccc;
+        transition: 0.3s all;
+        font-family: "Barlow";
+
+        &:hover{
+            color: $light-green;
+        }
+    }
+}
+
+div.contacts p.green-font{
+    color: $light-green;
+    margin-bottom: .5rem;
+}
+
+div.contacts p{
+    margin-bottom: .8rem;
 }
 
 </style>
