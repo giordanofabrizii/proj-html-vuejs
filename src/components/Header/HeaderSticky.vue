@@ -255,9 +255,9 @@ export default {
                                     </h3>
                                 </div>
                                 <ul id="cart" v-if="(store.shopList.items.length > 0)">
-                                    <li v-for="(item,index) in store.shopList.items" :key="index">©
+                                    <li v-for="(item,index) in store.shopList.items" :key="index">
                                         <i class="fa-solid fa-x" @click="deleteItem(index)"></i>
-                                        <a href="" class="flex flex-start">
+                                        <div class="flex flex-start">
                                             <div id="img-cart">
                                                 <img :src="item.url" :alt="item.title">
                                             </div>
@@ -275,17 +275,30 @@ export default {
                                                         {{ item.oldPrice }}
                                                     </h5>
                                                 </div>
+                                                <div>
+                                                    <span>
+                                                        +
+                                                    </span>
+                                                    <span class="fs-16">
+                                                        {{ store.shopList.items[index].count }}
+                                                    </span>
+                                                    <span>
+                                                        -
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </a>
+                                        </div>
                                     </li>
                                 </ul>
 
-                                <h4 class="m-b-1">
-                                    Carrello vuoto.
-                                </h4>
-                                <h4 class="m-b-1">
-                                    Aggiungi articoli!
-                                </h4>
+                                <div v-else>
+                                    <h5 class="m-b-1" >
+                                        Carrello vuoto.
+                                    </h5>
+                                    <h5 class="m-b-1">
+                                        Aggiungi articoli!
+                                    </h5>
+                                </div>
 
                                 <ButtonApp
                                 :name="buttonShopData.name"
@@ -553,18 +566,24 @@ ul#cart{
         font-family: 'Barlow';
     }
 
-    h4{
+    h5{
         margin-bottom: .5rem;
         color: $white;
         font-family: 'Barlow';
         font-size: 18px;
-        width: 9rem;
+        width: 4rem;
         
         &.m-b-1{
             margin-bottom: 1rem;
             text-align: center;
         }
-
+    }
+    h4{
+        color: $white;
+        width: 10rem;
+    }
+    span{
+        color: $white;
     }
 
     h5{
@@ -598,6 +617,14 @@ div.flex.spacebetween{
 
 #button-cartShop{
     margin: 0 auto;
+}
+
+.fs-16{
+    font-size: 16px;
+}
+
+span{
+    margin-right: .5rem;
 }
 
 
