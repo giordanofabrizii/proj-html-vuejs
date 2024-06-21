@@ -175,7 +175,7 @@ p{
 }
 
 section.navbar{
-    padding: 4rem 17rem;
+    padding: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: start;
@@ -246,6 +246,10 @@ nav ul li{
     }
 }
 
+div.contacts{
+    width: 12%;
+}
+
 div.contacts p.green-font{
     color: $light-green;
     margin-bottom: .5rem;
@@ -253,6 +257,7 @@ div.contacts p.green-font{
 
 div.contacts p{
     margin-bottom: .8rem;
+
 }
 
 section.copyright{
