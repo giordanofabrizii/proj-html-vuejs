@@ -91,7 +91,6 @@ export default{
                 // altrimenti
                 item.count = 1;
                 store.shopList.items.push(item);
-                store.shopList.name.push(item.name)
 
             }
             // item.count = 1;

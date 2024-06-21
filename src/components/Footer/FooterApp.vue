@@ -82,7 +82,7 @@ export default{
         <section class="small-container navbar">
             <section class="info">
                 <a href="#">
-                    <img src="../assets/img/logo.png" alt="Futio Logo">
+                    <img src="../../assets/img/logo.png" alt="Futio Logo">
                 </a>
                 
                 <p>Lorem ipsum dolor sit amet, elit. Varius enim in eros elementum Duis mi quis viverra ornare.</p>
