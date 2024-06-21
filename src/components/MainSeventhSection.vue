@@ -49,11 +49,11 @@ export default{
                     <img :src="'./src/assets/img/' + article.url" alt="">
                     <div>
                         <div class="info">
-                            <i class="fa-regular fa-clock"></i>
+                            <img class="icon" src="../assets/img/icon/clock.png" alt="">
                             <p>{{ article.readingTime }}</p>
-                            <i class="fa-regular fa-eye"></i>
+                            <img class="icon" src="../assets/img/icon/eye.png" alt="">
                             <p>{{ article.views }}</p>
-                            <i class="fa-regular fa-calendar"></i>
+                            <img class="icon" src="../assets/img/icon/calendar.png" alt="">
                             <p>{{ article.date }}</p>
                         </div>
                         <h2>{{ article.title }}</h2>
@@ -123,6 +123,12 @@ section{
                         margin-left: .5rem;
                         margin-right: 1rem;
                         font-size: .8rem;
+                    }
+
+                    img.icon{
+                        height: 0.8rem;
+                        width: .9rem;
+                        border-radius: 0;
                     }
                 }
 
