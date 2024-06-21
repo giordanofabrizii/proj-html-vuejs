@@ -106,7 +106,7 @@ div.card-container{
 
     div.card{
         width: calc(100%/5);
-        height: 470px;
+        height: 32rem;
         overflow: hidden;
         margin: 1rem;
         border: 3px solid $light-green;
