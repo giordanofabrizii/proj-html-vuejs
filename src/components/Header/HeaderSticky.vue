@@ -183,7 +183,6 @@ export default {
 
             buttonShopData:{
                     name: 'CHECKOUT',
-                    url: 'www.google.it',
                 }
         }
     },
@@ -314,14 +313,12 @@ export default {
 
                                 <ButtonApp
                                 :name="buttonShopData.name"
-                                :url="buttonShopData.url"
                                 id="button-cartShop"
                                 />
                             </div>
                         </div>
                         <ButtonApp
                         :name="buttonData.name"
-                        :url="buttonData.url"
                         id="button"
                         />
                     </div>

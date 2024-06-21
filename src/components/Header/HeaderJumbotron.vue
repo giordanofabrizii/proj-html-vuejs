@@ -22,7 +22,6 @@ export default {
             },
             buttonData:{
                 name: 'EXPLORE GAME',
-                url: "'www.google.it'"
             },
             playerData:{
                 url: 'src/assets/img/icon/play-icon.png',
@@ -62,7 +61,6 @@ export default {
             <div id="bottoni">
                     <ButtonApp
                     :name="buttonData.name"
-                    :url="buttonData.url"
                     />
 
                 <CircleButtonApp

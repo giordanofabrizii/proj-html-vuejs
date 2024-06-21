@@ -13,9 +13,9 @@ export default{
         <button>
             <div class="surround">
             </div>
-            <a :href="url">
+            <span>
                 <i class="fa-solid fa-play"></i>
-            </a>
+            </span>
         </button>
         
     </div>
@@ -52,7 +52,7 @@ button{
     position: relative;
     cursor: pointer;
 
-        a{
+        span{
             text-transform: uppercase;
             font-weight: 500;
             font-size: 1.2rem;

@@ -10,10 +10,6 @@ export default{
             type: String,
             required: true
         },
-        url: {
-            type: String,
-            required: true
-        },
     }
 }
 </script>
@@ -21,7 +17,7 @@ export default{
 <template>
     <div class="surround">
         <button>
-            <a :href="url">{{ name }}</a>
+            <p>{{ name }}</p>
         </button>
     </div>
 </template>
@@ -44,7 +40,7 @@ export default{
         border-radius: 5rem;
         width: max-content;
 
-        a{
+        p{
             color: $black;
             text-transform: uppercase;
             font-weight: 500;
