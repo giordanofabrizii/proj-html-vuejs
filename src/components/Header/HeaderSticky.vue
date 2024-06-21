@@ -287,13 +287,13 @@ export default {
                                                     </h5>
                                                 </div>
                                                 <div>
-                                                    <span @click="this.increaseCountShop(index)">
+                                                    <span @click="this.increaseCountShop(index)" class="pointer">
                                                         +
                                                     </span>
                                                     <span class="fs-16">
                                                         {{ store.shopList.items[index].count }}
                                                     </span>
-                                                    <span @click="this.decreaseCountShop(index)">
+                                                    <span @click="this.decreaseCountShop(index)" class="pointer">
                                                         -
                                                     </span>
                                                 </div>
@@ -654,11 +654,17 @@ div.flex.spacebetween{
 
 span{
     margin-right: .5rem;
+    
+    &.pointer{
+        cursor: pointer;
+
+    }
 }
 
 li:hover i{
     visibility: visible;
     opacity: 1;
+    cursor: pointer;
 }
 
 
