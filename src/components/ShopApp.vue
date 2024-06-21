@@ -121,12 +121,14 @@ export default{
                         <p>{{ i.price }}</p>
                         <p class="old">{{ i.oldPrice }}</p>
                     </div>
-                    <span v-if="findEl(i.name)">
-                        {{ findEl(i.name).count}}
-                    </span>
-                    <button @click="addEl(i)">
-                        <img src="../assets/img/icon/cart-icon.png" alt="">
-                    </button>
+                    <div class="cart">
+                        <span v-if="findEl(i.name)">
+                            {{ findEl(i.name).count}}
+                        </span>
+                        <button @click="addEl(i)">
+                            <img src="../assets/img/icon/cart-icon.png" alt="">
+                        </button>
+                    </div>
                 </article>
             </div>
         </div>
@@ -180,6 +182,7 @@ section{
             height: 10rem;
             @include flexRow;
             border-radius: 1rem;
+            position: relative;
 
             img{
                 height: 100%;
@@ -194,6 +197,7 @@ section{
 
                 p{
                     margin: .2rem 0;
+                    width: min-content;
                 }
 
                 .old{
@@ -203,19 +207,26 @@ section{
 
             }
 
-            span{
-                align-self: end;
-                margin: 0 .5rem 1.5rem 0;
+            .cart{
+                position: absolute;
+                bottom: .5rem;
+                right: .5rem;
+                @include flexRow;
+                justify-content: center;
+
+                span{
+                    align-self: end;
+                    margin: 0 .5rem .75rem 0;
+                }
+    
+                button{
+                    border: none;
+                    background-color: $green;
+                    padding: .5rem 1rem;
+                    border-radius: 1rem;
+                }
             }
 
-            button{
-                border: none;
-                background-color: $green;
-                padding: .5rem 1rem;
-                border-radius: 1rem;
-                margin: 0 1rem 1rem 0;
-                align-self: end;
-            }
         }
     }
 }

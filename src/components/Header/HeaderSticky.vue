@@ -666,9 +666,4 @@ li:hover i{
     opacity: 1;
     cursor: pointer;
 }
-
-
-
-
-
 </style>
