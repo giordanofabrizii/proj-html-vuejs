@@ -82,9 +82,9 @@ export default{
                 </div>
             </div> 
             <ButtonApp
-                    :name="buttonData.name",
+                    :name="buttonData.name"
                     :url="buttonData.url"
-            />
+                    />
         </div>
     </section>
 </template>
