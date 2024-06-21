@@ -239,11 +239,14 @@ export default {
                         </li>
                     </ul>
                     <div id="shop-liveStream">
-                        <div id="div-cart" @click="turnCartShop()">
-                            <img :src="cartIconData.url" :alt="cartIconData.title" id="img-cart">
-                            <div id="numero-item">
-                                {{ `0${store.shopList.items.length}` }}
+                        <div id="div-cart">
+                            <div @click="turnCartShop()">
+                                <img :src="cartIconData.url" :alt="cartIconData.title" id="img-cart">
+                                <div id="numero-item">
+                                    {{ `0${store.shopList.items.length}` }}
+                                </div>
                             </div>
+                            
 
                             <div id="dropdown-shop" :class="(cartIconData.active === true) ? 'display' : 'no-display-1'">
                                 <div class="flex spacebetween">
@@ -291,7 +294,7 @@ export default {
                                     </li>
                                 </ul>
 
-                                <div v-else>
+                                <div class="flex-column center" v-else>
                                     <h5 class="m-b-1" >
                                         Carrello vuoto.
                                     </h5>
@@ -489,6 +492,11 @@ i{
     align-items: flex-start;
 }
 
+.center{
+    align-items: center;
+    justify-content: center;
+}
+
 /*Da togliere*/
 h2{
     color: white;
@@ -576,6 +584,8 @@ ul#cart{
         &.m-b-1{
             margin-bottom: 1rem;
             text-align: center;
+            width: 100%;
+            padding: .3rem 0;
         }
     }
     h4{
