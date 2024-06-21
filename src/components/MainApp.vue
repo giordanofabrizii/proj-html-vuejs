@@ -7,6 +7,7 @@ import MainFifthSection from './MainFifthSection.vue';
 import MainSixthSection from './MainSixthSection.vue';
 import MainSeventhSection from './MainSeventhSection.vue';
 import MainNewsletter from './MainNewsletter.vue';
+import TournamentSection from './TournamentSection.vue';
 
 export default{
     data() {
@@ -24,6 +25,7 @@ export default{
         MainSixthSection,
         MainSeventhSection,
         MainNewsletter,
+        TournamentSection
     }
 }
 </script>
@@ -35,6 +37,7 @@ export default{
     <MainFourthSection/>
     <MainFifthSection/>
     <MainSixthSection/>
+    <TournamentSection/>
     <MainSeventhSection/>
     <MainNewsletter/>
 </template>
