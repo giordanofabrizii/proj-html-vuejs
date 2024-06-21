@@ -256,7 +256,7 @@ export default {
                             </div>
                             
 
-                            <div id="dropdown-shop" :class="(cartIconData.active === true) ? 'display' : 'no-display-1'">
+                            <div id="dropdown-shop" :class="(cartIconData.active === true) ? 'display' : 'no-display-3'">
                                 <div class="flex spacebetween">
                                     <h3>
                                         Cart
@@ -485,6 +485,11 @@ i{
     visibility: hidden;
     opacity: 0;
 }
+.no-display-3{
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(150px);
+}
 .relative{
     position: relative;
 }
@@ -542,6 +547,10 @@ h2{
 ul#cart{
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 30rem;
+    margin-bottom: 1rem;
 
     li{
         border: 2px solid #435980;
@@ -631,6 +640,8 @@ div.flex.spacebetween{
 .display{
     visibility: visible;
     opacity: 1;
+    transform: translateY(0px);
+    transition: all linear 0.3s;
 }
 
 #button-cartShop{
