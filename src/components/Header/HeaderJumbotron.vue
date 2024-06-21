@@ -114,6 +114,10 @@ export default {
     }
     div.w-38{
         width: 38%;
+
+        p{
+            margin-bottom: 2rem;
+        }
     }
 
     div#player{
@@ -141,7 +145,7 @@ export default {
         align-items: center;
 
         >:last-child{
-            margin: 0 1rem;
+            margin: 0 1.5rem;
         }
     }
 
