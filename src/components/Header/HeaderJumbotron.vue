@@ -139,6 +139,10 @@ export default {
     div#bottoni{
         display: flex;
         align-items: center;
+
+        >:last-child{
+            margin: 0 1rem;
+        }
     }
 
     section{

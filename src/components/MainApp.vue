@@ -7,6 +7,7 @@ import MainFifthSection from './MainFifthSection.vue';
 import MainSixthSection from './MainSixthSection.vue';
 import MainSeventhSection from './MainSeventhSection.vue';
 import MainNewsletter from './MainNewsletter.vue';
+import ShopApp from './ShopApp.vue';
 import TournamentSection from './TournamentSection.vue';
 
 export default{
@@ -25,6 +26,7 @@ export default{
         MainSixthSection,
         MainSeventhSection,
         MainNewsletter,
+        ShopApp,
         TournamentSection
     }
 }
@@ -36,6 +38,7 @@ export default{
     <MainThirdSection/>
     <MainFourthSection/>
     <MainFifthSection/>
+    <ShopApp/>
     <MainSixthSection/>
     <TournamentSection/>
     <MainSeventhSection/>

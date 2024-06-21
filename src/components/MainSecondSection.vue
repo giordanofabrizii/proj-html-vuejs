@@ -83,7 +83,8 @@ export default{
             </div> 
             <ButtonApp
                     :name="buttonData.name"
-            />
+                    :url="buttonData.url"
+                    />
         </div>
     </section>
 </template>
