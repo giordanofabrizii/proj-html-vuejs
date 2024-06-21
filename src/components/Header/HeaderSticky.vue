@@ -193,15 +193,12 @@ export default {
     },
     turnCartShop(){
         this.cartIconData.active = !this.cartIconData.active
-        console.log('click')
     },
     deleteItem: function(indice){
         store.shopList.items.splice(indice, 1);
-        console.log('dovrei cancellare')
     },
     increaseCountShop: function(index){
         store.shopList.items[index].count += 1
-        console.log(1212, 'click')
     },
     decreaseCountShop: function(index){
         if(store.shopList.items[index].count > 1){
@@ -209,7 +206,6 @@ export default {
         }else{
             store.shopList.items.splice(index, 1)
         }
-        console.log(1212, 'click')
     },
     },
     mounted() {
@@ -271,7 +267,7 @@ export default {
                                 </div>
                                 <ul id="cart" v-if="(store.shopList.items.length > 0)">
                                     <li v-for="(item,index) in store.shopList.items" :key="index">
-                                        <i class="fa-solid fa-x" @click="deleteItem(index)"></i>
+                                        <i class="fa-solid fa-x no-display-2" @click="deleteItem(index)"></i>
                                         <div class="flex flex-start">
                                             <div id="img-cart">
                                                 <img :src="item.url" :alt="item.title">
@@ -647,6 +643,11 @@ div.flex.spacebetween{
 
 span{
     margin-right: .5rem;
+}
+
+li:hover i{
+    visibility: visible;
+    opacity: 1;
 }
 
 
