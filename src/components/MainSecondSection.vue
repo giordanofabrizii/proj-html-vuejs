@@ -39,6 +39,7 @@ export default{
             ],
             buttonData:{
                 name: 'VIEW ALL MATCH >>',
+                url: 'www.google.com'
             }
         }
     }

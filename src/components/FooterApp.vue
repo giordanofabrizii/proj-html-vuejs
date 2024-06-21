@@ -68,6 +68,11 @@ export default{
                 phone: '(302)555-0107'
             }
         }
+    },
+    methods:{
+        reload: function(){
+            window.location.reload()
+        }
     }
 }
 </script>
@@ -145,7 +150,7 @@ export default{
         <section class="copyright">
             <p>
                 Copyright &#169; 2022
-                <a href="#" @click="window.location.reload()">
+                <a href="#" @click="reload() ">
                     FUTIO
                 </a>
                 . All rights reserved.
