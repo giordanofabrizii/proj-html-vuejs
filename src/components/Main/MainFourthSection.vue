@@ -1,5 +1,5 @@
 <script>
-import CircleButtonApp from './CircleButtonApp.vue';
+import CircleButtonApp from '../Utilities/CircleButtonApp.vue';
 
 export default{
     data() {
@@ -23,7 +23,7 @@ export default{
 
                 <div class="stream">
                     <div id="status">
-                        <i class="fa-solid fa-tower-cell"></i>
+                        <img src="../../assets/img/icon/live-icon.png" alt="live">
                         <h5>Live</h5>
                     </div>
                     <div id="center">
@@ -53,9 +53,9 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/mixins' as *;
-@use '../styles/general.scss';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/general.scss';
 
     section{
         background-color: black;
@@ -63,7 +63,7 @@ export default{
         color: white;
 
         .background{
-            background-image: url(../assets/img/live-streaming-bg.png);
+            background-image: url(../../assets/img/live-streaming-bg.png);
             background-size: contain;
             background-repeat: no-repeat;
             width: 100%;
@@ -91,7 +91,7 @@ export default{
                 }
 
                 .stream{
-                    background-image: url(../assets/img/video-bg.png);
+                    background-image: url(../../assets/img/video-bg.png);
                     background-size: cover;
                     border-radius: 2rem;
                     margin: 3rem auto;
@@ -110,9 +110,8 @@ export default{
                         background-color: $orange;
                         @include flexRow;
 
-                        i{
+                        img{
                             margin-right: .3rem;
-                            color: $black;
                         }
 
                         h5{

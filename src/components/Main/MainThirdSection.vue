@@ -1,6 +1,6 @@
 <script>
-import ButtonApp from './ButtonApp.vue';        
-import CircleButtonApp from './CircleButtonApp.vue';
+import ButtonApp from '../Utilities/ButtonApp.vue';        
+import CircleButtonApp from '../Utilities/CircleButtonApp.vue';
 
 export default{
     data() {
@@ -48,9 +48,9 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-@use '../styles/general.scss';
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/mixins' as *;
+@use '../../styles/general.scss';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 section{
     background-color: $black;

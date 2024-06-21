@@ -48,7 +48,7 @@ export default{
                     </p> 
                     <p class="green">
                         <span>
-                            <img src="../assets/img/icon/calendar.png" alt="calendar png">
+                            <img src="../../assets/img/icon/calendar.png" alt="calendar png">
                         </span>
                         {{ event.start_date.slice(5) }}__{{ event.end_date.slice(5) }}
                     </p>
@@ -72,9 +72,9 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-@use '../styles/general.scss';
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/mixins' as *;
+@use '../../styles/general.scss';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 section{
     background-color: $black;

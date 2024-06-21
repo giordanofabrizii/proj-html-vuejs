@@ -49,11 +49,11 @@ export default{
                     <img :src="'./src/assets/img/' + article.url" alt="">
                     <div>
                         <div class="info">
-                            <img class="icon" src="../assets/img/icon/clock.png" alt="calendar">
+                            <img class="icon" src="../../assets/img/icon/clock.png" alt="calendar">
                             <p>{{ article.readingTime }}</p>
-                            <img class="icon" src="../assets/img/icon/eye.png" alt="eye">
+                            <img class="icon" src="../../assets/img/icon/eye.png" alt="eye">
                             <p>{{ article.views }}</p>
-                            <img class="icon" src="../assets/img/icon/calendar.png" alt="date">
+                            <img class="icon" src="../../assets/img/icon/calendar.png" alt="date">
                             <p>{{ article.date }}</p>
                         </div>
                         <h2>{{ article.title }}</h2>
@@ -66,9 +66,9 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/mixins' as *;
-@use '../styles/general.scss';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/general.scss';
 section{
     background-color: $black;
     color: white;

@@ -20,7 +20,7 @@ export default{
             <div class="input-wrapper">
                 <input required="" placeholder="Enter your email" type="text" id="messageInput" />
                 <button id="sendButton">
-                    <img src="../assets/img/icon/send-icon.png" alt="send">
+                    <img src="../../assets/img/icon/send-icon.png" alt="send">
                 </button>
             </div>
         </div>
@@ -29,9 +29,9 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-@use '../styles/general.scss';
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/mixins' as *;
+@use '../../styles/general.scss';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 
 div{

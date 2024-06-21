@@ -11,7 +11,7 @@ export default{
 <template>
     <section class="container">
         <div class="ad-banner">
-            <img id="item-one" src="../assets/img/banner-item-obj1.png" alt="banner cellphone">
+            <img id="item-one" src="../../assets/img/banner-item-obj1.png" alt="banner cellphone">
 
             <div class="info-ad">
                 <h4>Make Offer</h4>
@@ -19,16 +19,16 @@ export default{
                 <a href="#">Get Offers</a>
             </div>
 
-            <img id="item-two" src="../assets/img/banner-item-obj2.png" alt="banner headphones">
+            <img id="item-two" src="../../assets/img/banner-item-obj2.png" alt="banner headphones">
         </div>
     </section>
     
 </template>
 
 <style lang="scss" scoped>
-@use '../styles/general.scss';
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/mixins' as *;
+@use '../../styles/general.scss';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 section{
     background-color: $black;
@@ -36,7 +36,7 @@ section{
 }
 
 div.ad-banner{
-    background-image: url(../assets/img/banner-item-bg.png);
+    background-image: url(../../assets/img/banner-item-bg.png);
     background-size: cover;
     margin: 0 auto;
     width: 80vw;

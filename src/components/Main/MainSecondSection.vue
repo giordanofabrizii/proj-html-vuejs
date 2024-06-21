@@ -1,5 +1,5 @@
 <script>
-import ButtonApp from './ButtonApp.vue';
+import ButtonApp from '../Utilities/ButtonApp.vue';
 
 export default{
     components:{
@@ -62,7 +62,7 @@ export default{
                 <div class="battle-card" v-for="match in matches" :key="match.id" :match="match">
                     <div class="team-logos">
                         <img :src="match.team1Logo" alt="Team 1 Logo" />
-                        <img src="../assets/img/verus-icon.png" alt="VS" class="verus-icon" />
+                        <img src="../../assets/img/verus-icon.png" alt="VS" class="verus-icon" />
                         <img :src="match.team2Logo" alt="Team 2 Logo" />
                     </div>
                     <div class="names">
@@ -71,11 +71,11 @@ export default{
                     </div>
                     <div class="platform-icons">
                         <div>
-                            <img src="../assets/img/icon/youtube-icon.png" alt="YouTube" />
+                            <img src="../../assets/img/icon/youtube-icon.png" alt="YouTube" />
                             <span>Youtube </span>
                         </div>
                         <div>
-                            <img src="../assets/img/icon/twitch-icon.png" alt="Twitch" />
+                            <img src="../../assets/img/icon/twitch-icon.png" alt="Twitch" />
                             <span>Twitch</span> 
                         </div>
                     </div>
@@ -90,8 +90,8 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-@use '../styles/partials/variables' as *;
-@use '../styles/general.scss';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/general.scss';
 section{
     background-color: $blue;
 

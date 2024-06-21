@@ -1,5 +1,5 @@
 <script>
-import {store} from '../store.js'
+import {store} from '../../store.js'
 
 export default{
     data() {
@@ -83,10 +83,10 @@ export default{
     },
     methods: {
         addEl: function(item){
-            if (store.shopList.name.includes(item.name)) {
+            if (this.findEl(item.name)) {
                 // se e' gia nel carrello
                 let el = this.findEl(item.name);
-                el.count ++;
+                el.count++;
             } else {
                 // altrimenti
                 item.count = 1;
@@ -126,7 +126,7 @@ export default{
                             {{ findEl(i.name).count}}
                         </span>
                         <button @click="addEl(i)">
-                            <img src="../assets/img/icon/cart-icon.png" alt="">
+                            <img src="../../assets/img/icon/cart-icon.png" alt="cart icon">
                         </button>
                     </div>
                 </article>
@@ -136,9 +136,9 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/mixins' as *;
-@use '../styles/general.scss';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/general.scss';
 
 section{
     background-color: $black;

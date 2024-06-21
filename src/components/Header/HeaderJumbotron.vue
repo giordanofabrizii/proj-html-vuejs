@@ -1,6 +1,6 @@
 <script>
-import ButtonApp from '../ButtonApp.vue';
-import CircleButtonApp from '../CircleButtonApp.vue';
+import ButtonApp from '../Utilities/ButtonApp.vue';
+import CircleButtonApp from '../Utilities/CircleButtonApp.vue';
 import "@fontsource/barlow" ;
 import "@fontsource/orbitron/700.css";
 

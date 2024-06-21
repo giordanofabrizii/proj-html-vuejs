@@ -1,5 +1,5 @@
 <script>
-import ButtonApp from './ButtonApp.vue';
+import ButtonApp from '../Utilities/ButtonApp.vue';
 
 export default{
     components:{
@@ -41,7 +41,7 @@ export default{
         <!-- Make your mark -->
         <div class="small-container">
             <div class="image-container">
-                <img src="../assets/img/features-illus.png" alt="features-illus">
+                <img src="../../assets/img/features-illus.png" alt="features-illus">
             </div>
             <div class="content-container">
                 <h1>
@@ -74,9 +74,9 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-@use '../styles/partials/mixins' as *;
-@use '../styles/partials/variables' as *;
-@use '../styles/general.scss' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/general.scss' as *;
 
 section{
     background-color: $black;

@@ -1,9 +1,9 @@
 <script>
-import HeaderApp from './components/HeaderApp.vue';
-import MainApp from './components/MainApp.vue';
-import FooterApp from './components/FooterApp.vue';
-import Loader from './components/LoaderApp.vue';
-import ScrollUpButton from './components/ScrollUpButtonApp.vue';
+import HeaderApp from './components/Header/HeaderApp.vue';
+import MainApp from './components/Main/MainApp.vue';
+import FooterApp from './components/Footer/FooterApp.vue';
+import Loader from './components/Utilities/LoaderApp.vue';
+import ScrollUpButton from './components/Main/ScrollUpButtonApp.vue';
 import "@fontsource/orbitron"; 
 import "@fontsource/barlow";
 

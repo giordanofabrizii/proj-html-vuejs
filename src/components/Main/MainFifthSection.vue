@@ -1,5 +1,5 @@
 <script>
-import CarouselApp from './CarouselApp.vue';
+import CarouselApp from '../Utilities/CarouselApp.vue';
 
 export default{
     data() {
@@ -29,8 +29,8 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-@use '../styles/general.scss';
-@use '../styles/partials/variables' as *;
+@use '../../styles/general.scss';
+@use '../../styles/partials/variables' as *;
 
 section {
     background-color: $black;

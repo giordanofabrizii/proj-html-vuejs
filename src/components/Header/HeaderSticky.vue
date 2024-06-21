@@ -1,7 +1,7 @@
 <script>
-import ButtonApp from '../ButtonApp.vue';
-import "@fontsource/barlow/600.css";
+import ButtonApp from '../Utilities/ButtonApp.vue';
 import { store } from '../../store';
+import "@fontsource/barlow/600.css";
 export default {
     components:{
         ButtonApp,
@@ -204,7 +204,8 @@ export default {
         if(store.shopList.items[index].count > 1){
             store.shopList.items[index].count = store.shopList.items[index].count - 1
         }else{
-            store.shopList.items.splice(index, 1)
+            store.shopList.items.splice(index, 1);
+            store.shopList.name.splice(index, 1);
         }
     },
     },
@@ -287,14 +288,14 @@ export default {
                                                     </h5>
                                                 </div>
                                                 <div>
-                                                    <span @click="this.increaseCountShop(index)" class="pointer">
-                                                        +
+                                                    <span @click="decreaseCountShop(index)" class="pointer">
+                                                        -
                                                     </span>
                                                     <span class="fs-16">
                                                         {{ store.shopList.items[index].count }}
                                                     </span>
-                                                    <span @click="this.decreaseCountShop(index)" class="pointer">
-                                                        -
+                                                    <span @click="increaseCountShop(index)" class="pointer">
+                                                        +
                                                     </span>
                                                 </div>
                                             </div>

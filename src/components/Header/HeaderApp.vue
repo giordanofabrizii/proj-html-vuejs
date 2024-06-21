@@ -1,6 +1,6 @@
 <script>
-import HeaderSticky from './Header/HeaderSticky.vue';
-import HeaderJumbotron from './Header/HeaderJumbotron.vue';
+import HeaderSticky from './HeaderSticky.vue';
+import HeaderJumbotron from './HeaderJumbotron.vue';
 
 export default{
   components:{
@@ -24,9 +24,5 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-  header{
-    
 
-    
-  }
 </style>

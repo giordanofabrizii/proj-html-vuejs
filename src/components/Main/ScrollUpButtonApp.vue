@@ -24,12 +24,12 @@ export default{
 
 <template>
     <button :class="(scroll > 100) ? 'visible' : null" @click="scrollUp()">
-        <img src="../assets/img/svg/e-double-right-arrow.svg" alt="">
+        <img src="../../assets/img/svg/e-double-right-arrow.svg" alt="">
     </button>
 </template>
 
 <style lang="scss" scoped>
-@use '../styles/partials/variables' as *;
+@use '../../styles/partials/variables' as *;
 
     button{
         position: fixed;
