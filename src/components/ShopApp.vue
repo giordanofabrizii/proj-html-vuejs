@@ -121,7 +121,7 @@ export default{
                         <p>{{ i.price }}</p>
                         <p class="old">{{ i.oldPrice }}</p>
                     </div>
-                    <span v-if="store.shopList.name.includes(i.name)">
+                    <span v-if="findEl(i.name)">
                         {{ findEl(i.name).count}}
                     </span>
                     <button @click="addEl(i)">
