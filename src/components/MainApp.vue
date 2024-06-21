@@ -8,6 +8,7 @@ import MainSixthSection from './MainSixthSection.vue';
 import MainSeventhSection from './MainSeventhSection.vue';
 import MainNewsletter from './MainNewsletter.vue';
 import ShopApp from './ShopApp.vue';
+import TournamentSection from './TournamentSection.vue';
 
 export default{
     data() {
@@ -26,6 +27,7 @@ export default{
         MainSeventhSection,
         MainNewsletter,
         ShopApp,
+        TournamentSection
     }
 }
 </script>
@@ -38,6 +40,7 @@ export default{
     <MainFifthSection/>
     <ShopApp/>
     <MainSixthSection/>
+    <TournamentSection/>
     <MainSeventhSection/>
     <MainNewsletter/>
 </template>
