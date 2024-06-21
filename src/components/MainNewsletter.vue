@@ -74,6 +74,7 @@ h2{
     margin-bottom: 1rem;
     font-size: 2.7rem;
     font-weight: bolder;
+    width: 40rem;
 }
 
 p{
