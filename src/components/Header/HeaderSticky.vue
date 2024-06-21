@@ -199,6 +199,18 @@ export default {
         store.shopList.items.splice(indice, 1);
         console.log('dovrei cancellare')
     },
+    increaseCountShop: function(index){
+        store.shopList.items[index].count += 1
+        console.log(1212, 'click')
+    },
+    decreaseCountShop: function(index){
+        if(store.shopList.items[index].count > 1){
+            store.shopList.items[index].count = store.shopList.items[index].count - 1
+        }else{
+            store.shopList.items.splice(index, 1)
+        }
+        console.log(1212, 'click')
+    },
     },
     mounted() {
         window.addEventListener('scroll', this.updateScroll);
@@ -279,13 +291,13 @@ export default {
                                                     </h5>
                                                 </div>
                                                 <div>
-                                                    <span>
+                                                    <span @click="this.increaseCountShop(index)">
                                                         +
                                                     </span>
                                                     <span class="fs-16">
                                                         {{ store.shopList.items[index].count }}
                                                     </span>
-                                                    <span>
+                                                    <span @click="this.decreaseCountShop(index)">
                                                         -
                                                     </span>
                                                 </div>
