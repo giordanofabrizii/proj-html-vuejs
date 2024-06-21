@@ -28,7 +28,7 @@ export default{
             ],
             buttonData:{
                 name: 'PLAN NOW >>',
-                url: 'www.google.com'
+                url: 'www.google.com',
             }
         }
     }
@@ -63,7 +63,8 @@ export default{
                         </div>
                     </div>
                     <ButtonApp
-                        :name="buttonData.name"
+                        :name="buttonData.name",
+                        :ulr="buttonData.url"
                     />
                 </div>
             </div>
