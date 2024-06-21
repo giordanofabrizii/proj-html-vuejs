@@ -7,6 +7,7 @@ import MainFifthSection from './MainFifthSection.vue';
 import MainSixthSection from './MainSixthSection.vue';
 import MainSeventhSection from './MainSeventhSection.vue';
 import MainNewsletter from './MainNewsletter.vue';
+import ShopApp from './ShopApp.vue';
 
 export default{
     data() {
@@ -24,6 +25,7 @@ export default{
         MainSixthSection,
         MainSeventhSection,
         MainNewsletter,
+        ShopApp,
     }
 }
 </script>
@@ -34,6 +36,7 @@ export default{
     <MainThirdSection/>
     <MainFourthSection/>
     <MainFifthSection/>
+    <ShopApp/>
     <MainSixthSection/>
     <MainSeventhSection/>
     <MainNewsletter/>
