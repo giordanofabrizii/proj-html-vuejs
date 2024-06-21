@@ -9,11 +9,6 @@ export default{
     },
     components:{
         CircleButtonApp,
-    },
-    methods: {
-        playVideo: function(){
-            this.active = true;
-        }
     }
 }
 </script>
@@ -32,7 +27,7 @@ export default{
                         <h5>Live</h5>
                     </div>
                     <div id="center">
-                        <CircleButtonApp :url="'https:www.google.com'"/>
+                        <CircleButtonApp @click="active=true" />
                         <h2>League Of Legends</h2>
                     </div>
                     <div id="info">
@@ -48,7 +43,12 @@ export default{
                 </div>
             </div>
         </div>
-        
+        <div class="video" v-if="active">
+            <iframe src="https://www.youtube.com/embed/ZyhrYis509A?si=ckhINZJxd-Vd15BG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="close-video" @click="active=false">
+                <i class="fa-solid fa-square-xmark"></i>
+            </div>
+        </div>
     </section>
 </template>
 
@@ -151,6 +151,35 @@ export default{
                 }
             }
 
+        }
+    }
+
+    div.video{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        @include flexRow;
+        justify-content: center;
+        z-index: 4;
+
+        div.close-video{
+            
+            position: absolute;
+            top: 6rem;
+            right: 12rem;
+
+            i{
+                font-size: 4rem;
+                color: $white;
+            }
+        }
+
+        iframe{
+            width: 60%;
+            aspect-ratio: 16/9;
         }
     }
 </style>
