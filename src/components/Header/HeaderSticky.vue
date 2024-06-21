@@ -1,12 +1,14 @@
 <script>
 import ButtonApp from '../ButtonApp.vue';
 import "@fontsource/barlow/600.css";
+import { store } from '../../store';
 export default {
     components:{
         ButtonApp,
     },
     data() {
         return {
+            store,
             ulData: [
                 {
                     name: 'Home',
@@ -172,37 +174,13 @@ export default {
                 url: "'www.google.it'",
             },
             scrollPosition: null,
+
             cartIconData:{
                 url: 'src/assets/img/icon/cart-icon.png',
                 title: 'Shop cart',
                 active: false,
             },
-            shopList:{
-                items: [
-                    {
-                        name: 'Havit RGB Headphone',
-                        title: 'Cuffie RGB Havit',
-                        price: '$380.00',
-                        oldPrice: '$410.00',
-                        url: 'src/assets/img/shop-image-3.png',
-                        active: true,
-                    },{
-                        name: 'Touch Controller Grip',
-                        title: 'Controller grip touch',
-                        price: '$380.00',
-                        oldPrice: '$410.00',
-                        url: 'src/assets/img/shop-image-5.png',
-                        active: true,
-                    },{
-                        name: 'Gaming Microphone',
-                        title: 'Microfono da gaming',
-                        price: '$380.00',
-                        oldPrice: '$410.00',
-                        url: 'src/assets/img/shop-image-8.png',
-                        active: true,
-                    },
-                ],
-            },
+
             buttonShopData:{
                     name: 'CHECKOUT',
                     url: 'www.google.it',
@@ -217,8 +195,8 @@ export default {
         this.cartIconData.active = !this.cartIconData.active
         console.log('click')
     },
-    deleteItem(indice){
-        this.shopList.items[indice].splice(indice, 1);
+    deleteItem: function(indice){
+        store.shopList.items.splice(indice, 1);
         console.log('dovrei cancellare')
     },
     },
@@ -264,7 +242,7 @@ export default {
                         <div id="div-cart" @click="turnCartShop()">
                             <img :src="cartIconData.url" :alt="cartIconData.title" id="img-cart">
                             <div id="numero-item">
-                                {{ `0${shopList.items.length}` }}
+                                {{ `0${store.shopList.items.length}` }}
                             </div>
 
                             <div id="dropdown-shop" :class="(cartIconData.active === true) ? 'display' : 'no-display-1'">
@@ -273,11 +251,11 @@ export default {
                                         Cart
                                     </h3>
                                     <h3 id="font">
-                                        {{ `0${shopList.items.length}` }}
+                                        {{ `0${store.shopList.items.length}` }}
                                     </h3>
                                 </div>
-                                <ul id="cart">
-                                    <li v-for="(item,index) in shopList.items" :key="index">
+                                <ul id="cart" v-if="(store.shopList.items.length > 0)">
+                                    <li v-for="(item,index) in store.shopList.items" :key="index">©
                                         <i class="fa-solid fa-x" @click="deleteItem(index)"></i>
                                         <a href="" class="flex flex-start">
                                             <div id="img-cart">
@@ -301,6 +279,13 @@ export default {
                                         </a>
                                     </li>
                                 </ul>
+
+                                <h4 class="m-b-1">
+                                    Carrello vuoto.
+                                </h4>
+                                <h4 class="m-b-1">
+                                    Aggiungi articoli!
+                                </h4>
 
                                 <ButtonApp
                                 :name="buttonShopData.name"
@@ -574,6 +559,11 @@ ul#cart{
         font-family: 'Barlow';
         font-size: 18px;
         width: 9rem;
+        
+        &.m-b-1{
+            margin-bottom: 1rem;
+            text-align: center;
+        }
 
     }
 
@@ -609,6 +599,8 @@ div.flex.spacebetween{
 #button-cartShop{
     margin: 0 auto;
 }
+
+
 
 
 
