@@ -1,12 +1,14 @@
 <script>
 import ButtonApp from '../ButtonApp.vue';
 import "@fontsource/barlow/600.css";
+import { store } from '../../store';
 export default {
     components:{
         ButtonApp,
     },
     data() {
         return {
+            store,
             ulData: [
                 {
                     name: 'Home',
@@ -172,37 +174,13 @@ export default {
                 url: "'www.google.it'",
             },
             scrollPosition: null,
+
             cartIconData:{
                 url: 'src/assets/img/icon/cart-icon.png',
                 title: 'Shop cart',
                 active: false,
             },
-            shopList:{
-                items: [
-                    {
-                        name: 'Havit RGB Headphone',
-                        title: 'Cuffie RGB Havit',
-                        price: '$380.00',
-                        oldPrice: '$410.00',
-                        url: 'src/assets/img/shop-image-3.png',
-                        active: true,
-                    },{
-                        name: 'Touch Controller Grip',
-                        title: 'Controller grip touch',
-                        price: '$380.00',
-                        oldPrice: '$410.00',
-                        url: 'src/assets/img/shop-image-5.png',
-                        active: true,
-                    },{
-                        name: 'Gaming Microphone',
-                        title: 'Microfono da gaming',
-                        price: '$380.00',
-                        oldPrice: '$410.00',
-                        url: 'src/assets/img/shop-image-8.png',
-                        active: true,
-                    },
-                ],
-            },
+
             buttonShopData:{
                     name: 'CHECKOUT',
                     url: 'www.google.it',
@@ -215,11 +193,19 @@ export default {
     },
     turnCartShop(){
         this.cartIconData.active = !this.cartIconData.active
-        console.log('click')
     },
-    deleteItem(indice){
-        this.shopList.items[indice].splice(indice, 1);
-        console.log('dovrei cancellare')
+    deleteItem: function(indice){
+        store.shopList.items.splice(indice, 1);
+    },
+    increaseCountShop: function(index){
+        store.shopList.items[index].count += 1
+    },
+    decreaseCountShop: function(index){
+        if(store.shopList.items[index].count > 1){
+            store.shopList.items[index].count = store.shopList.items[index].count - 1
+        }else{
+            store.shopList.items.splice(index, 1)
+        }
     },
     },
     mounted() {
@@ -261,11 +247,14 @@ export default {
                         </li>
                     </ul>
                     <div id="shop-liveStream">
-                        <div id="div-cart" @click="turnCartShop()">
-                            <img :src="cartIconData.url" :alt="cartIconData.title" id="img-cart">
-                            <div id="numero-item">
-                                {{ `0${shopList.items.length}` }}
+                        <div id="div-cart">
+                            <div @click="turnCartShop()">
+                                <img :src="cartIconData.url" :alt="cartIconData.title" id="img-cart">
+                                <div id="numero-item">
+                                    {{ `0${store.shopList.items.length}` }}
+                                </div>
                             </div>
+                            
 
                             <div id="dropdown-shop" :class="(cartIconData.active === true) ? 'display' : 'no-display-1'">
                                 <div class="flex spacebetween">
@@ -273,13 +262,13 @@ export default {
                                         Cart
                                     </h3>
                                     <h3 id="font">
-                                        {{ `0${shopList.items.length}` }}
+                                        {{ `0${store.shopList.items.length}` }}
                                     </h3>
                                 </div>
-                                <ul id="cart">
-                                    <li v-for="(item,index) in shopList.items" :key="index">
-                                        <i class="fa-solid fa-x" @click="deleteItem(index)"></i>
-                                        <a href="" class="flex flex-start">
+                                <ul id="cart" v-if="(store.shopList.items.length > 0)">
+                                    <li v-for="(item,index) in store.shopList.items" :key="index">
+                                        <i class="fa-solid fa-x no-display-2" @click="deleteItem(index)"></i>
+                                        <div class="flex flex-start">
                                             <div id="img-cart">
                                                 <img :src="item.url" :alt="item.title">
                                             </div>
@@ -297,10 +286,30 @@ export default {
                                                         {{ item.oldPrice }}
                                                     </h5>
                                                 </div>
+                                                <div>
+                                                    <span @click="this.increaseCountShop(index)">
+                                                        +
+                                                    </span>
+                                                    <span class="fs-16">
+                                                        {{ store.shopList.items[index].count }}
+                                                    </span>
+                                                    <span @click="this.decreaseCountShop(index)">
+                                                        -
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </a>
+                                        </div>
                                     </li>
                                 </ul>
+
+                                <div class="flex-column center" v-else>
+                                    <h5 class="m-b-1" >
+                                        Carrello vuoto.
+                                    </h5>
+                                    <h5 class="m-b-1">
+                                        Aggiungi articoli!
+                                    </h5>
+                                </div>
 
                                 <ButtonApp
                                 :name="buttonShopData.name"
@@ -491,6 +500,11 @@ i{
     align-items: flex-start;
 }
 
+.center{
+    align-items: center;
+    justify-content: center;
+}
+
 /*Da togliere*/
 h2{
     color: white;
@@ -568,13 +582,26 @@ ul#cart{
         font-family: 'Barlow';
     }
 
-    h4{
+    h5{
         margin-bottom: .5rem;
         color: $white;
         font-family: 'Barlow';
         font-size: 18px;
-        width: 9rem;
-
+        width: 4rem;
+        
+        &.m-b-1{
+            margin-bottom: 1rem;
+            text-align: center;
+            width: 100%;
+            padding: .3rem 0;
+        }
+    }
+    h4{
+        color: $white;
+        width: 10rem;
+    }
+    span{
+        color: $white;
     }
 
     h5{
@@ -609,6 +636,21 @@ div.flex.spacebetween{
 #button-cartShop{
     margin: 0 auto;
 }
+
+.fs-16{
+    font-size: 16px;
+}
+
+span{
+    margin-right: .5rem;
+}
+
+li:hover i{
+    visibility: visible;
+    opacity: 1;
+}
+
+
 
 
 
