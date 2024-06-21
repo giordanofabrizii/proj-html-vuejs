@@ -9,6 +9,12 @@ export default{
         updateScroll() {
             this.scroll = window.scrollY
         },
+        scrollUp: function(){
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
     },
     mounted() {
         window.addEventListener('scroll', this.updateScroll);
@@ -17,7 +23,7 @@ export default{
 </script>
 
 <template>
-    <button :class="(scroll > 100) ? 'visible' : null">
+    <button :class="(scroll > 100) ? 'visible' : null" @click="scrollUp()">
         <img src="../assets/img/svg/e-double-right-arrow.svg" alt="">
     </button>
 </template>
@@ -35,6 +41,7 @@ export default{
         padding: 1rem;
         border-radius: 8px;
         transition: top 1s linear;
+        opacity: 0;
 
         img{
             transform: rotate(-90deg);
@@ -42,6 +49,7 @@ export default{
     
         &.visible{
             top: calc(100vh - 5rem);
+            opacity: 1;
         }
     }
 </style>
