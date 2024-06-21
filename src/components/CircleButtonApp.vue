@@ -46,7 +46,6 @@ div.bttn-container{
 }
 
 button{
-    // background-color: red;
     border: none;
     background-color: $white;
     padding: 2rem;
@@ -55,7 +54,7 @@ button{
     align-items: center;
     justify-content: center;
     width: 3rem;
-    aspect-ratio: 1/1;
+    height: 3rem;
     position: relative;
     cursor: pointer;
 

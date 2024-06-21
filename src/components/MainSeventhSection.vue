@@ -49,11 +49,11 @@ export default{
                     <img :src="'./src/assets/img/' + article.url" alt="">
                     <div>
                         <div class="info">
-                            <img class="icon" src="../assets/img/icon/clock.png" alt="">
+                            <img class="icon" src="../assets/img/icon/clock.png" alt="calendar">
                             <p>{{ article.readingTime }}</p>
-                            <img class="icon" src="../assets/img/icon/eye.png" alt="">
+                            <img class="icon" src="../assets/img/icon/eye.png" alt="eye">
                             <p>{{ article.views }}</p>
-                            <img class="icon" src="../assets/img/icon/calendar.png" alt="">
+                            <img class="icon" src="../assets/img/icon/calendar.png" alt="date">
                             <p>{{ article.date }}</p>
                         </div>
                         <h2>{{ article.title }}</h2>
@@ -93,11 +93,11 @@ section{
 
     .article-container{
         margin: 2rem auto;
-        width: 70%;
+        width: 90%;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        height: 33rem;
+        height: 35rem;
 
         article{
             width: calc(50% - 2rem);
@@ -122,13 +122,16 @@ section{
                     p{
                         margin-left: .5rem;
                         margin-right: 1rem;
-                        font-size: .8rem;
+                        font-family: Barlow;
                     }
 
                     img.icon{
-                        height: 0.8rem;
-                        width: .9rem;
+                        height: 1.1rem;
                         border-radius: 0;
+                    }
+
+                    img[alt="eye"]{
+                        height: .8rem;
                     }
                 }
 
@@ -143,7 +146,7 @@ section{
                 display: flex;
                 flex-direction: column;
 
-                img{
+                img:not(.icon){
                     width: 100%;
                 }
 
@@ -151,7 +154,8 @@ section{
 
                     h2{
                         width: 28rem;
-                        font-size: 1.8rem
+                        font-size: 1.8rem;
+                        margin-top: 1rem;
                     }
                 }
             }

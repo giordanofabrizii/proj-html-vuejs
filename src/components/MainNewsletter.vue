@@ -44,13 +44,11 @@ div.container{
 
 div.bg-black{
     background-color: $black;
-    width: 100vw;
     height: 10rem;
 }
 
 div.bg-blue{
     background-color: $blue;
-    width: 100vw;
     height: 8rem;
 }
 
