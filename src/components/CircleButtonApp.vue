@@ -32,6 +32,7 @@ export default{
     .surround{
     display: flex;
     align-items: center;
+    justify-content: center;
     border: 2px solid $green;
     transition: all .3s linear;
     margin: .5rem;
