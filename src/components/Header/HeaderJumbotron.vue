@@ -1,11 +1,13 @@
 <script>
 import ButtonApp from '../ButtonApp.vue';
+import CircleButtonApp from '../CircleButtonApp.vue';
 import "@fontsource/barlow" ;
 import "@fontsource/orbitron/700.css";
 
 export default {
     components:{
         ButtonApp,
+        CircleButtonApp,
     },
     data() {
         return {
@@ -58,18 +60,14 @@ export default {
                 {{ titleData.p }}
             </p>
             <div id="bottoni">
-                <div>
                     <ButtonApp
                     :name="buttonData.name"
                     :url="buttonData.url"
                     />
-                </div>
 
-            <div id="player-border">
-                <div id="player">
-                    <img :src="playerData.url" :alt="playerData.title">
-                </div>
-            </div>
+                <CircleButtonApp
+                :url="'https://www.youtube.com/watch?v=ZyhrYis509A'"
+                />
             </div>
         </div>
         <div class="w-58">
