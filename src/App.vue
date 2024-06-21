@@ -3,6 +3,7 @@ import HeaderApp from './components/HeaderApp.vue';
 import MainApp from './components/MainApp.vue';
 import FooterApp from './components/FooterApp.vue';
 import Loader from './components/LoaderApp.vue';
+import ScrollUpButton from './components/ScrollUpButtonApp.vue';
 import "@fontsource/orbitron"; 
 import "@fontsource/barlow";
 
@@ -11,7 +12,8 @@ import "@fontsource/barlow";
       HeaderApp,
       MainApp,
       FooterApp,
-      Loader
+      Loader,
+      ScrollUpButton
     },
     data(){
       return{
@@ -32,6 +34,7 @@ import "@fontsource/barlow";
     <HeaderApp/>
     <MainApp/>
     <FooterApp/>
+    <ScrollUpButton/>
   </div>
 </template>
 
