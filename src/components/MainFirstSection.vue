@@ -28,6 +28,7 @@ export default{
             ],
             buttonData:{
                 name: 'PLAN NOW >>',
+                url: 'www.google.com'
             }
         }
     }
