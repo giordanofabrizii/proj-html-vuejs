@@ -4,12 +4,6 @@ export default{
         return{
             
         }
-    },
-    props:{
-        url: {
-            type: String,
-            required: true
-        },
     }
 }
 </script>

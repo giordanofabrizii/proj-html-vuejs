@@ -4,11 +4,16 @@ import CircleButtonApp from './CircleButtonApp.vue';
 export default{
     data() {
         return{
-            
+            active: false
         }
     },
     components:{
         CircleButtonApp,
+    },
+    methods: {
+        playVideo: function(){
+            this.active = true;
+        }
     }
 }
 </script>
@@ -43,6 +48,7 @@ export default{
                 </div>
             </div>
         </div>
+        
     </section>
 </template>
 
