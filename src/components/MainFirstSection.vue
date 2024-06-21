@@ -1,5 +1,6 @@
 <script>
 import ButtonApp from './ButtonApp.vue';
+
 export default{
     components:{
         ButtonApp,
@@ -28,6 +29,7 @@ export default{
             ],
             buttonData:{
                 name: 'PLAN NOW >>',
+                url: "'www.google.com'",
             }
         }
     }
@@ -62,7 +64,8 @@ export default{
                         </div>
                     </div>
                     <ButtonApp
-                        :name="buttonData.name"
+                    :name="buttonData.name"
+                    :url="buttonData.url"
                     />
                 </div>
             </div>

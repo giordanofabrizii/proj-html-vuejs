@@ -39,6 +39,7 @@ export default{
             ],
             buttonData:{
                 name: 'VIEW ALL MATCH >>',
+                url: 'www.google.com'
             }
         }
     }
@@ -82,7 +83,8 @@ export default{
             </div> 
             <ButtonApp
                     :name="buttonData.name"
-            />
+                    :url="buttonData.url"
+                    />
         </div>
     </section>
 </template>

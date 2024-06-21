@@ -26,8 +26,10 @@ export const store = reactive ({
                 count: 1,
             },
         ],
-        name: [ 
-            'Havit RGB Headphone', 'Touch Controller Grip', 'Gaming Microphone',
-        ]
+        name: [
+            'Havit RGB Headphone',
+            'Touch Controller Grip',
+            'Gaming Microphone',
+        ],
     },
 })
