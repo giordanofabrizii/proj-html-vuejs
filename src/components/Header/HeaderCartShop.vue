@@ -185,6 +185,10 @@ ul#cart{
         margin-bottom: .5rem;
         position: relative;
 
+        &:hover i{
+            display: inline-block;
+        }
+
         &:last-child{
             margin-bottom: 1.5rem;
         }
@@ -195,6 +199,7 @@ ul#cart{
             top: 0;
             transform: translateY(-40%);
             color: $white;
+            display: none;
         }
     }
 }

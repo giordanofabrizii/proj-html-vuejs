@@ -104,11 +104,6 @@ nav{
     visibility: hidden;
     opacity: 0;
 }
-.no-display-3{
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(150px);
-}
 .relative{
     position: relative;
 }
