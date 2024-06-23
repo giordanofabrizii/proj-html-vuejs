@@ -1,10 +1,20 @@
 <script>
+import RegistrationPopup from '../PopUp/PopUpRegisterNow.vue';
 export default{
+    components:{
+        RegistrationPopup,
+    },
     data() {
         return{
-            
+            showPopup: false,
+            emailUser: '',
         }
-    }
+    },
+    methods:{
+        cleanEmailRegistration(){
+            this.emailUser = '';
+        },
+    },
 }
 </script>
 
@@ -18,9 +28,12 @@ export default{
                 <p>Libero malesuada feugiat. Viviamus magna justo, lacinia eget consecutur sed, convallis at tellus.</p>
             </div>
             <div class="input-wrapper">
-                <input required="" placeholder="Enter your email" type="text" id="messageInput" />
+                <input required="" placeholder="Enter your email" type="text" id="messageInput" v-model="emailUser"/>
+                <RegistrationPopup v-if="showPopup" 
+                :isVisible="showPopup" 
+                @close="showPopup = false" />
                 <button id="sendButton">
-                    <img src="../../assets/img/icon/send-icon.png" alt="send">
+                    <img src="../../assets/img/icon/send-icon.png" alt="send" @click="showPopup = true, cleanEmailRegistration()">
                 </button>
             </div>
         </div>
