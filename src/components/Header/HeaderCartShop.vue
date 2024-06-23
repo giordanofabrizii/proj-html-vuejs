@@ -47,75 +47,75 @@ export default {
 
 <template>
     <div id="div-cart">
-                            <div @click="turnCartShop()">
-                                <img :src="cartIconData.url" :alt="cartIconData.title" id="img-cart">
-                                <div id="numero-item">
-                                    {{ `0${store.shopList.items.length}` }}
-                                </div>
+        <div @click="turnCartShop()" id="div-shop">
+            <img :src="cartIconData.url" :alt="cartIconData.title" id="img-cart">
+            <div id="numero-item">
+                {{ `0${store.shopList.items.length}` }}
+            </div>
+        </div>
+        
+
+        <div id="dropdown-shop" :class="(cartIconData.active === true) ? 'display' : 'no-display-3'">
+            <div class="flex spacebetween">
+                <h3>
+                    Cart
+                </h3>
+                <h3 id="font">
+                    {{ `0${store.shopList.items.length}` }}
+                </h3>
+            </div>
+            <ul id="cart" v-if="(store.shopList.items.length > 0)">
+                <li v-for="(item,index) in store.shopList.items" :key="index">
+                    <i class="fa-solid fa-x no-display-2" @click="deleteItem(index)"></i>
+                    <div class="flex flex-start">
+                        <div id="img-cart">
+                            <img :src="item.url" :alt="item.title">
+                        </div>
+                        <div>
+                            <div>
+                                <h4>
+                                    {{ item.name }}
+                                </h4>
                             </div>
-                            
-
-                            <div id="dropdown-shop" :class="(cartIconData.active === true) ? 'display' : 'no-display-3'">
-                                <div class="flex spacebetween">
-                                    <h3>
-                                        Cart
-                                    </h3>
-                                    <h3 id="font">
-                                        {{ `0${store.shopList.items.length}` }}
-                                    </h3>
-                                </div>
-                                <ul id="cart" v-if="(store.shopList.items.length > 0)">
-                                    <li v-for="(item,index) in store.shopList.items" :key="index">
-                                        <i class="fa-solid fa-x no-display-2" @click="deleteItem(index)"></i>
-                                        <div class="flex flex-start">
-                                            <div id="img-cart">
-                                                <img :src="item.url" :alt="item.title">
-                                            </div>
-                                            <div>
-                                                <div>
-                                                    <h4>
-                                                        {{ item.name }}
-                                                    </h4>
-                                                </div>
-                                                <div class="flex">
-                                                    <h5>
-                                                        {{ item.price }}
-                                                    </h5>
-                                                    <h5 class="old-price">
-                                                        {{ item.oldPrice }}
-                                                    </h5>
-                                                </div>
-                                                <div>
-                                                    <span @click="decreaseCountShop(index)" class="pointer">
-                                                        -
-                                                    </span>
-                                                    <span class="fs-16">
-                                                        {{ store.shopList.items[index].count }}
-                                                    </span>
-                                                    <span @click="increaseCountShop(index)" class="pointer">
-                                                        +
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-
-                                <div class="flex-column center" v-else>
-                                    <h5 class="m-b-1" >
-                                        Carrello vuoto.
-                                    </h5>
-                                    <h5 class="m-b-1">
-                                        Aggiungi articoli!
-                                    </h5>
-                                </div>
-
-                                <ButtonApp
-                                :name="buttonShopData.name"
-                                id="button-cartShop"
-                                />
+                            <div class="flex">
+                                <h5>
+                                    {{ item.price }}
+                                </h5>
+                                <h5 class="old-price">
+                                    {{ item.oldPrice }}
+                                </h5>
+                            </div>
+                            <div>
+                                <span @click="decreaseCountShop(index)" class="pointer">
+                                    -
+                                </span>
+                                <span class="fs-16">
+                                    {{ store.shopList.items[index].count }}
+                                </span>
+                                <span @click="increaseCountShop(index)" class="pointer">
+                                    +
+                                </span>
                             </div>
                         </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="flex-column center" v-else>
+                <h5 class="m-b-1" >
+                    Carrello vuoto.
+                </h5>
+                <h5 class="m-b-1">
+                    Aggiungi articoli!
+                </h5>
+            </div>
+
+            <ButtonApp
+            :name="buttonShopData.name"
+            id="button-cartShop"
+            />
+        </div>
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -292,6 +292,16 @@ span{
 li:hover i{
     visibility: visible;
     opacity: 1;
+    cursor: pointer;
+}
+
+.no-display-3{
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(150px);
+}
+
+#div-shop{
     cursor: pointer;
 }
 </style>
