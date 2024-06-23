@@ -22,11 +22,8 @@ export default {
         };
     },
     methods: {
-        register() {;
-        this.closePopup();
-        },
         closePopup() {
-        this.$emit('close');
+            this.$emit('close');
         }
     }
 };
