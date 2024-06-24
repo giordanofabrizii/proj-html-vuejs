@@ -1,7 +1,47 @@
-# Vue 3 + Vite
+1) PRESENTAZIONE PROGETTO :
+    - Divisione in componenti (spiegazione)
+    - Uso dei dati (store, emit, props)
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+2) HEADER :
+    - Scelta Nav (dropdown)
+    - Posizionamento dei data
+    - Jumbotron (sfondo)
+    - Componenti bottone 
 
-## Recommended IDE Setup
+3) MAKE YOUR MARK :
+    - Cambio sfondo header (diventa sticky)
+    - Componente Page up
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+4) KEEP EYES :
+    - Data (ciclo for per le card)
+    - Flex wrap per la responsiveness
+    (- Componenti bottone)
+
+5) QUICK FACTS :
+    - Tentativo di counter
+
+6) WATCH THE STREAM :
+    - Stile componente bottone
+    - link a Youtube e stile relativo della pagina
+
+7) SHOP :
+    - Posizionamento data nello store
+    - Posizionamento rispetto agli altri componenti della pagina e scelte di stile
+
+8) DISCOUNT AD :
+    - Stile
+
+9) TOURNAMENT :
+    - Chiamata API
+    - Design (stile, hover, tagli degli utlimi due oggetti del JSON)
+
+10) NEWS :
+    - Discorso strutturale
+
+11) NEWSLETTER :
+    - Stile
+    - Improvement by Matte: gestione dati, pop up con variabile, uso emit
+
+12) FOOTER : 
+    - Stile (hover, icone)
+    - FUTIO link -->componente Loader 
