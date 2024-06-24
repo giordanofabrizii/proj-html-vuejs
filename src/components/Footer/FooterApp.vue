@@ -212,7 +212,7 @@ a.social-icon{
     height: 40px;
     border: 1px solid rgba(127, 108, 152, 0.5);
     border-radius: 50%;
-    padding: 5px 7px;
+    padding: 7px;
     text-align: center;
     transition: 0.3s all;
 
