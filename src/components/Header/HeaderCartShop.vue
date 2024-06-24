@@ -177,6 +177,12 @@ ul#cart{
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 30rem;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    &::-webkit-scrollbar {
+        display: none;
+        }
 
     li{
         border: 2px solid #435980;
