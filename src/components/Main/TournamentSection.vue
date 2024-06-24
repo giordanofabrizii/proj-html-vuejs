@@ -87,6 +87,11 @@ h1, h3, p.centered{
     
 }
 
+p.centered{
+    font-family: Barlow;
+    color: $gray;
+}
+
 h1{
     font-size: 3rem;
     margin: 1rem auto;

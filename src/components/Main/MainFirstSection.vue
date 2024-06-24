@@ -112,8 +112,11 @@ section{
                 margin: 10px 0;
             }
 
-            p{
+            >p{
                 color: $gray;
+            }
+
+            p{
                 font-size: 18px;
                 margin-bottom: 20px;
                 line-height: 25px;
@@ -139,6 +142,7 @@ section{
                 p{
                     font-size: 18px;
                     line-height: 25px;
+                    color: $white;
                 }
 
             }

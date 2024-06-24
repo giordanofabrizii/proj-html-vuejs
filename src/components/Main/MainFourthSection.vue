@@ -83,12 +83,15 @@ export default{
                     margin: 1rem 0;
                 }
 
-                p{
+                >p{
                     width: 42rem;
                     margin: 0 auto;
                     line-height: 1.5rem;
                     font-size: .8rem;
+                    color: $gray;
+                    font-family: Barlow;
                 }
+
 
                 .stream{
                     background-image: url(../../assets/img/video-bg.png);

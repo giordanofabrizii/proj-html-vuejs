@@ -85,9 +85,13 @@ section{
         margin: 1rem auto;
     }
 
-    >p{
+    .small-container > p{
+        font-family: Barlow;
         color: $gray;
         width: 54rem;
+    }
+
+    p{
         margin: 0 auto;
     }
 

@@ -53,6 +53,8 @@ section {
         p{
             text-align: center;
             width: 54rem;
+            font-family: Barlow;
+            color: $gray;
             margin: 0 auto;
         }
     }

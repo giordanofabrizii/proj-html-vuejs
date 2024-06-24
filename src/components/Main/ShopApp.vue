@@ -93,9 +93,6 @@ export default{
                 store.shopList.items.push(item);
 
             }
-            // item.count = 1;
-            // console.log(item)
-            // store.shopList.items.push(item);
         },
         findEl: function(nameEl){
             return store.shopList.items.find(obj => obj['name'] === nameEl)
@@ -159,6 +156,7 @@ section{
     
         >p{
             color: $gray;
+            font-family: Barlow;
             width: 55rem;
             margin: 0 auto;
             text-align: center;
@@ -175,7 +173,7 @@ section{
         margin: 0 auto;
 
         article{
-            background-color: $gray;
+            background-color: #ebebeb;
             margin: .5rem;
             width: calc(100% / 3 - 1rem);
             height: 10rem;
