@@ -111,6 +111,17 @@ div.card-container{
         border: 3px solid $light-green;
         border-radius: 2rem;
         position: relative;
+        transition: all .2s linear;
+
+        &:hover{
+        transform: scale(1.02, 1.02);
+        box-shadow: $white 1px 0 10px;
+        }
+
+        &:hover div.see-more{
+            transform: scale(1.1, 1.1);
+            text-shadow: $white 1px 0 10px;
+        }
     }
 }
 
@@ -157,11 +168,6 @@ div.see-more{
     bottom: 1rem;
     right: 1rem;
     transition: all .2s linear;
-
-    &:hover{
-        transform: scale(1.1, 1.1);
-        text-shadow: $white 1px 0 10px;
-    }
 }
 
 p.more-info{
