@@ -28,7 +28,7 @@ export default{
                 <p>Libero malesuada feugiat. Viviamus magna justo, lacinia eget consecutur sed, convallis at tellus.</p>
             </div>
             <div class="input-wrapper">
-                <input required="" placeholder="Enter your email" type="text" id="messageInput" v-model="emailUser"/>
+                <input required="" placeholder="Enter your email" type="text" id="messageInput" v-model="emailUser" @keyup.enter="showPopup = true, cleanEmailRegistration()"/>
                 <RegistrationPopup v-if="showPopup" 
                 :isVisible="showPopup" 
                 @close="showPopup = false" />

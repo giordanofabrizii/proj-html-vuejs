@@ -81,7 +81,7 @@ export default {
     background: $blue;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .popup h2 {
