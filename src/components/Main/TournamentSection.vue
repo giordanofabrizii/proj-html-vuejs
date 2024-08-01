@@ -9,7 +9,7 @@ export default{
     },
     methods: {
         getUpcomingEvent: function(){
-        axios.get('http://152.89.170.170:3000/events/esport')
+        axios.get(DELETED SERVER)
         .then(response => {
             this.events = response.data;
             this.events.splice(8,2);
